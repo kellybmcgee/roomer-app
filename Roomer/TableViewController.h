@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSArray *RoomNumber;
 @property (nonatomic, strong) NSArray *Description;
 @property (nonatomic, strong) NSArray *Availability;
+@property (nonatomic, strong) NSArray *LengthOfAvailable;
 
 @end

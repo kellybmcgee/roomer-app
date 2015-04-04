@@ -13,5 +13,6 @@
 @property(strong, nonatomic) IBOutlet UILabel *RoomNumberLabel;
 @property(strong, nonatomic) IBOutlet UILabel *DescriptionLabel;
 @property(strong, nonatomic) IBOutlet UILabel *AvailabilityLabel;
+@property(strong, nonatomic) IBOutlet UILabel *LengthOfAvailableLabel;
 
 @end
