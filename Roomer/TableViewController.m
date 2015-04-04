@@ -27,6 +27,7 @@
     _RoomNumber = @[@"1-123",@"1-124", @"3-345", @"2-323", @"20-234", @"30-123"];
     _Description = @[@"20 seats, Blackboard", @"50 seats, Projector", @"20 seats, Blackboard, Projector", @"20 seats, Blackboard", @"50 seats, Projector", @"20 seats, Blackboard, Projector"];
     _Availability = @[@"Open", @"Closed", @"Open", @"Open", @"Closed", @"Open"];
+    _LengthOfAvailable = @[@"until 7pm", @"until 5pm", @"until 6pm", @"until 7pm", @"until 5pm", @"until 6pm"];
     
 }
 
@@ -59,6 +60,8 @@
     cell.RoomNumberLabel.text = _RoomNumber[row];
     cell.DescriptionLabel.text = _Description[row];
     cell.AvailabilityLabel.text = _Availability[row];
+    cell.LengthOfAvailableLabel.text = _LengthOfAvailable[row];
+    
     return cell;
 }
 

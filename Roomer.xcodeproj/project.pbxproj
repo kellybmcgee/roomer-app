@@ -16,6 +16,7 @@
 		F34E165B1ACF6F530002DFC3 /* RoomerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E165A1ACF6F530002DFC3 /* RoomerTests.m */; };
 		F34E16661ACF70F40002DFC3 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16651ACF70F40002DFC3 /* TableViewController.m */; };
 		F34E16691ACF73D20002DFC3 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16681ACF73D20002DFC3 /* TableViewCell.m */; };
+		F34E166C1ACF8CD30002DFC3 /* CellBoundedLabels.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E166B1ACF8CD30002DFC3 /* CellBoundedLabels.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		F34E16651ACF70F40002DFC3 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		F34E16671ACF73D20002DFC3 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		F34E16681ACF73D20002DFC3 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		F34E166A1ACF8CD30002DFC3 /* CellBoundedLabels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellBoundedLabels.h; sourceTree = "<group>"; };
+		F34E166B1ACF8CD30002DFC3 /* CellBoundedLabels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellBoundedLabels.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,8 @@
 				F34E16651ACF70F40002DFC3 /* TableViewController.m */,
 				F34E16671ACF73D20002DFC3 /* TableViewCell.h */,
 				F34E16681ACF73D20002DFC3 /* TableViewCell.m */,
+				F34E166A1ACF8CD30002DFC3 /* CellBoundedLabels.h */,
+				F34E166B1ACF8CD30002DFC3 /* CellBoundedLabels.m */,
 			);
 			path = Roomer;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				F34E16441ACF6F530002DFC3 /* AppDelegate.m in Sources */,
 				F34E16411ACF6F530002DFC3 /* main.m in Sources */,
 				F34E16691ACF73D20002DFC3 /* TableViewCell.m in Sources */,
+				F34E166C1ACF8CD30002DFC3 /* CellBoundedLabels.m in Sources */,
 				F34E16661ACF70F40002DFC3 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
