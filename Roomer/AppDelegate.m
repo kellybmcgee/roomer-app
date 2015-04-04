@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+@import CoreLocation;
 
 @interface AppDelegate ()
 
@@ -41,5 +42,20 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    if (status == kCLAuthorizationStatusAuthorizedAlways) {
+        NSLog(@"a location services request has been made");
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"kCLAuthorizationStatusAuthorized" object:self];
+    }else{
+        NSLog(@"Unauthorized attempt to use location services.");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Access to Location Services Denied"
+                                                        message:@"To re-enable, please go to Settings and turn on Location Service for this app."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+}
 @end

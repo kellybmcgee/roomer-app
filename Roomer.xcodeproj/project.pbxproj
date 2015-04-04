@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A21D98591ACFA7BB0068ABB3 /* RoomBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = A21D98581ACFA7BB0068ABB3 /* RoomBuilder.m */; };
+		A21D98621ACFA9840068ABB3 /* RoomerCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A21D98611ACFA9840068ABB3 /* RoomerCommunicator.m */; };
+		A21D98661ACFAEAB0068ABB3 /* RoomerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A21D98651ACFAEAB0068ABB3 /* RoomerManager.m */; };
+		A21D98691ACFB1C20068ABB3 /* Rooms.m in Sources */ = {isa = PBXBuildFile; fileRef = A21D98681ACFB1C20068ABB3 /* Rooms.m */; };
+		A21D986B1AD04F7E0068ABB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21D986A1AD04F7E0068ABB3 /* Foundation.framework */; };
+		A21D986D1AD04F8A0068ABB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21D986C1AD04F8A0068ABB3 /* UIKit.framework */; };
+		A21D986F1AD04F900068ABB3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21D986E1AD04F900068ABB3 /* CoreLocation.framework */; };
 		F34E16411ACF6F530002DFC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16401ACF6F530002DFC3 /* main.m */; };
 		F34E16441ACF6F530002DFC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16431ACF6F530002DFC3 /* AppDelegate.m */; };
 		F34E16471ACF6F530002DFC3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16461ACF6F530002DFC3 /* ViewController.m */; };
@@ -30,6 +37,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A21D98571ACFA7BB0068ABB3 /* RoomBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomBuilder.h; sourceTree = "<group>"; };
+		A21D98581ACFA7BB0068ABB3 /* RoomBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomBuilder.m; sourceTree = "<group>"; };
+		A21D985A1ACFA8DB0068ABB3 /* RoomerCommunicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomerCommunicationDelegate.h; sourceTree = "<group>"; };
+		A21D98601ACFA9840068ABB3 /* RoomerCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomerCommunicator.h; sourceTree = "<group>"; };
+		A21D98611ACFA9840068ABB3 /* RoomerCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomerCommunicator.m; sourceTree = "<group>"; };
+		A21D98631ACFAE350068ABB3 /* RoomerManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomerManagerDelegate.h; sourceTree = "<group>"; };
+		A21D98641ACFAEAB0068ABB3 /* RoomerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomerManager.h; sourceTree = "<group>"; };
+		A21D98651ACFAEAB0068ABB3 /* RoomerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomerManager.m; sourceTree = "<group>"; };
+		A21D98671ACFB1C20068ABB3 /* Rooms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rooms.h; sourceTree = "<group>"; };
+		A21D98681ACFB1C20068ABB3 /* Rooms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rooms.m; sourceTree = "<group>"; };
+		A21D986A1AD04F7E0068ABB3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A21D986C1AD04F8A0068ABB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A21D986E1AD04F900068ABB3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F34E163B1ACF6F530002DFC3 /* Roomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34E163F1ACF6F530002DFC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F34E16401ACF6F530002DFC3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -56,6 +76,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A21D986F1AD04F900068ABB3 /* CoreLocation.framework in Frameworks */,
+				A21D986D1AD04F8A0068ABB3 /* UIKit.framework in Frameworks */,
+				A21D986B1AD04F7E0068ABB3 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +95,9 @@
 		F34E16321ACF6F530002DFC3 = {
 			isa = PBXGroup;
 			children = (
+				A21D986E1AD04F900068ABB3 /* CoreLocation.framework */,
+				A21D986C1AD04F8A0068ABB3 /* UIKit.framework */,
+				A21D986A1AD04F7E0068ABB3 /* Foundation.framework */,
 				F34E163D1ACF6F530002DFC3 /* Roomer */,
 				F34E16571ACF6F530002DFC3 /* RoomerTests */,
 				F34E163C1ACF6F530002DFC3 /* Products */,
@@ -102,8 +128,18 @@
 				F34E16651ACF70F40002DFC3 /* TableViewController.m */,
 				F34E16671ACF73D20002DFC3 /* TableViewCell.h */,
 				F34E16681ACF73D20002DFC3 /* TableViewCell.m */,
+				A21D98671ACFB1C20068ABB3 /* Rooms.h */,
+				A21D98681ACFB1C20068ABB3 /* Rooms.m */,
 				F34E166A1ACF8CD30002DFC3 /* CellBoundedLabels.h */,
 				F34E166B1ACF8CD30002DFC3 /* CellBoundedLabels.m */,
+				A21D98571ACFA7BB0068ABB3 /* RoomBuilder.h */,
+				A21D98581ACFA7BB0068ABB3 /* RoomBuilder.m */,
+				A21D985A1ACFA8DB0068ABB3 /* RoomerCommunicationDelegate.h */,
+				A21D98601ACFA9840068ABB3 /* RoomerCommunicator.h */,
+				A21D98611ACFA9840068ABB3 /* RoomerCommunicator.m */,
+				A21D98631ACFAE350068ABB3 /* RoomerManagerDelegate.h */,
+				A21D98641ACFAEAB0068ABB3 /* RoomerManager.h */,
+				A21D98651ACFAEAB0068ABB3 /* RoomerManager.m */,
 			);
 			path = Roomer;
 			sourceTree = "<group>";
@@ -238,7 +274,11 @@
 				F34E16441ACF6F530002DFC3 /* AppDelegate.m in Sources */,
 				F34E16411ACF6F530002DFC3 /* main.m in Sources */,
 				F34E16691ACF73D20002DFC3 /* TableViewCell.m in Sources */,
+				A21D98621ACFA9840068ABB3 /* RoomerCommunicator.m in Sources */,
+				A21D98591ACFA7BB0068ABB3 /* RoomBuilder.m in Sources */,
+				A21D98691ACFB1C20068ABB3 /* Rooms.m in Sources */,
 				F34E166C1ACF8CD30002DFC3 /* CellBoundedLabels.m in Sources */,
+				A21D98661ACFAEAB0068ABB3 /* RoomerManager.m in Sources */,
 				F34E16661ACF70F40002DFC3 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +472,7 @@
 				F34E16601ACF6F530002DFC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F34E16611ACF6F530002DFC3 /* Build configuration list for PBXNativeTarget "RoomerTests" */ = {
 			isa = XCConfigurationList;
@@ -440,6 +481,7 @@
 				F34E16631ACF6F530002DFC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

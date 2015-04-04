@@ -7,12 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "Rooms.h"
+#import "RoomerManager.h"
+#import "RoomerCommunicator.h"
 
-@interface TableViewController : UITableViewController
-
-@property (nonatomic, strong) NSArray *RoomNumber;
-@property (nonatomic, strong) NSArray *Description;
-@property (nonatomic, strong) NSArray *Availability;
-@property (nonatomic, strong) NSArray *LengthOfAvailable;
-
+@interface TableViewController : UITableViewController <CLLocationManagerDelegate>
 @end
