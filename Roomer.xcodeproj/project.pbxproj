@@ -17,6 +17,7 @@
 		F34E16661ACF70F40002DFC3 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16651ACF70F40002DFC3 /* TableViewController.m */; };
 		F34E16691ACF73D20002DFC3 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16681ACF73D20002DFC3 /* TableViewCell.m */; };
 		F34E166C1ACF8CD30002DFC3 /* CellBoundedLabels.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E166B1ACF8CD30002DFC3 /* CellBoundedLabels.m */; };
+		F34E16721ACFAF700002DFC3 /* RoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16711ACFAF700002DFC3 /* RoomView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		F34E16681ACF73D20002DFC3 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		F34E166A1ACF8CD30002DFC3 /* CellBoundedLabels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellBoundedLabels.h; sourceTree = "<group>"; };
 		F34E166B1ACF8CD30002DFC3 /* CellBoundedLabels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellBoundedLabels.m; sourceTree = "<group>"; };
+		F34E16701ACFAF700002DFC3 /* RoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomView.h; sourceTree = "<group>"; };
+		F34E16711ACFAF700002DFC3 /* RoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 				F34E16681ACF73D20002DFC3 /* TableViewCell.m */,
 				F34E166A1ACF8CD30002DFC3 /* CellBoundedLabels.h */,
 				F34E166B1ACF8CD30002DFC3 /* CellBoundedLabels.m */,
+				F34E16701ACFAF700002DFC3 /* RoomView.h */,
+				F34E16711ACFAF700002DFC3 /* RoomView.m */,
 			);
 			path = Roomer;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 				F34E16691ACF73D20002DFC3 /* TableViewCell.m in Sources */,
 				F34E166C1ACF8CD30002DFC3 /* CellBoundedLabels.m in Sources */,
 				F34E16661ACF70F40002DFC3 /* TableViewController.m in Sources */,
+				F34E16721ACFAF700002DFC3 /* RoomView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +438,7 @@
 				F34E16601ACF6F530002DFC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F34E16611ACF6F530002DFC3 /* Build configuration list for PBXNativeTarget "RoomerTests" */ = {
 			isa = XCConfigurationList;
@@ -440,6 +447,7 @@
 				F34E16631ACF6F530002DFC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

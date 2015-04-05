@@ -10,9 +10,8 @@
 
 @interface TableViewController : UITableViewController
 
-@property (nonatomic, strong) NSArray *RoomNumber;
-@property (nonatomic, strong) NSArray *Description;
-@property (nonatomic, strong) NSArray *Availability;
-@property (nonatomic, strong) NSArray *LengthOfAvailable;
+@property (nonatomic, strong) NSArray *roomNumber;
+@property (nonatomic, strong) NSArray *descriptions;
+@property (nonatomic, strong) NSArray *availability;
 
 @end

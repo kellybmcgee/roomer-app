@@ -10,9 +10,8 @@
 
 @interface TableViewCell : UITableViewCell
 
-@property(strong, nonatomic) IBOutlet UILabel *RoomNumberLabel;
-@property(strong, nonatomic) IBOutlet UILabel *DescriptionLabel;
-@property(strong, nonatomic) IBOutlet UILabel *AvailabilityLabel;
-@property(strong, nonatomic) IBOutlet UILabel *LengthOfAvailableLabel;
+@property(strong, nonatomic) IBOutlet UILabel *roomNumberLabel;
+@property(strong, nonatomic) IBOutlet UILabel *descriptionsLabel;
+@property(strong, nonatomic) IBOutlet UILabel *availabilityLabel;
 
 @end

@@ -23,7 +23,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ive-ao-JZI" kind="show" id="eTs-x9-LyO"/>
+                                    <segue destination="WoQ-YI-qe3" kind="show" id="eTs-x9-LyO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -39,7 +39,7 @@
             </objects>
             <point key="canvasLocation" x="1031" y="463"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Rooms-->
         <scene sceneID="qdi-ak-mLd">
             <objects>
                 <tableViewController id="ive-ao-JZI" customClass="TableViewController" sceneMemberID="viewController">
@@ -64,12 +64,6 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzn-rb-Nrc" customClass="CellBoundedLabels">
-                                            <rect key="frame" x="508" y="50" width="84" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qza-eO-zTF" customClass="CellBoundedLabels">
                                             <rect key="frame" x="537" y="11" width="55" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -79,16 +73,15 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="3CT-2f-OCd" firstAttribute="leading" secondItem="ydL-Eo-lNw" secondAttribute="leadingMargin" id="Yym-x6-cEF"/>
-                                        <constraint firstItem="Uzn-rb-Nrc" firstAttribute="trailing" secondItem="ydL-Eo-lNw" secondAttribute="trailingMargin" id="ePu-cf-RXc"/>
                                         <constraint firstItem="NMU-Kg-WVo" firstAttribute="leading" secondItem="ydL-Eo-lNw" secondAttribute="leadingMargin" id="kg0-hZ-p5e"/>
                                         <constraint firstItem="Qza-eO-zTF" firstAttribute="trailing" secondItem="ydL-Eo-lNw" secondAttribute="trailingMargin" id="lA7-8t-1P9"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="AvailabilityLabel" destination="Qza-eO-zTF" id="JH2-kn-M9P"/>
-                                    <outlet property="DescriptionLabel" destination="NMU-Kg-WVo" id="8bQ-t2-9ZT"/>
-                                    <outlet property="LengthOfAvailableLabel" destination="Uzn-rb-Nrc" id="Ay7-fc-fza"/>
-                                    <outlet property="RoomNumberLabel" destination="3CT-2f-OCd" id="AGf-5B-Olb"/>
+                                    <outlet property="availabilityLabel" destination="Qza-eO-zTF" id="QLI-ld-G00"/>
+                                    <outlet property="descriptionsLabel" destination="NMU-Kg-WVo" id="h6S-c9-InO"/>
+                                    <outlet property="roomNumberLabel" destination="3CT-2f-OCd" id="g3L-24-cQ5"/>
+                                    <segue destination="mJx-oG-8cA" kind="show" identifier="" id="iLA-oQ-skg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -97,15 +90,35 @@
                             <outlet property="delegate" destination="ive-ao-JZI" id="hQP-Vt-C2U"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Rooms" id="Zun-PK-TUq"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ElE-P0-mXq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1748" y="410"/>
+            <point key="canvasLocation" x="2560" y="410"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--View Controller-->
+        <scene sceneID="LFj-ao-wkV">
+            <objects>
+                <viewController id="mJx-oG-8cA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JVP-Xv-gK1"/>
+                        <viewControllerLayoutGuide type="bottom" id="xdj-2J-ZNt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Na1-4c-NeV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6d6-zn-xHM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bfd-SX-pQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3270" y="410"/>
+        </scene>
+        <!--HeadNavigation-->
         <scene sceneID="hCQ-HG-aaF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zkz-3l-8qR" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zkz-3l-8qR" userLabel="HeadNavigation" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zMz-CT-E9Y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -119,6 +132,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="job-Ra-nNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="219" y="463"/>
+        </scene>
+        <!--SearchResultsNavigation-->
+        <scene sceneID="ibS-BO-SSR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WoQ-YI-qe3" userLabel="SearchResultsNavigation" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mMJ-Ak-iQi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ive-ao-JZI" kind="relationship" relationship="rootViewController" id="sI1-h4-CIn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uvx-kE-cxr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1748" y="410"/>
         </scene>
     </scenes>
 </document>
