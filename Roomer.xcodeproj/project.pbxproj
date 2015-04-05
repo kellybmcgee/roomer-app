@@ -17,6 +17,10 @@
 		F34E16661ACF70F40002DFC3 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16651ACF70F40002DFC3 /* TableViewController.m */; };
 		F34E16691ACF73D20002DFC3 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16681ACF73D20002DFC3 /* TableViewCell.m */; };
 		F34E166C1ACF8CD30002DFC3 /* CellBoundedLabels.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E166B1ACF8CD30002DFC3 /* CellBoundedLabels.m */; };
+		F3C5BA681AD0FE6E0057FB8B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C5BA671AD0FE6E0057FB8B /* CoreLocation.framework */; };
+		F3C5BA6A1AD0FE780057FB8B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C5BA691AD0FE780057FB8B /* UIKit.framework */; };
+		F3C5BA6C1AD0FE800057FB8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C5BA6B1AD0FE800057FB8B /* Foundation.framework */; };
+		F3C5BA741AD11B420057FB8B /* CoreLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C5BA731AD11B420057FB8B /* CoreLocationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,11 @@
 		F34E16681ACF73D20002DFC3 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		F34E166A1ACF8CD30002DFC3 /* CellBoundedLabels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellBoundedLabels.h; sourceTree = "<group>"; };
 		F34E166B1ACF8CD30002DFC3 /* CellBoundedLabels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellBoundedLabels.m; sourceTree = "<group>"; };
+		F3C5BA671AD0FE6E0057FB8B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F3C5BA691AD0FE780057FB8B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F3C5BA6B1AD0FE800057FB8B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F3C5BA721AD11B420057FB8B /* CoreLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationController.h; sourceTree = "<group>"; };
+		F3C5BA731AD11B420057FB8B /* CoreLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLocationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +65,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3C5BA6C1AD0FE800057FB8B /* Foundation.framework in Frameworks */,
+				F3C5BA6A1AD0FE780057FB8B /* UIKit.framework in Frameworks */,
+				F3C5BA681AD0FE6E0057FB8B /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +84,9 @@
 		F34E16321ACF6F530002DFC3 = {
 			isa = PBXGroup;
 			children = (
+				F3C5BA6B1AD0FE800057FB8B /* Foundation.framework */,
+				F3C5BA691AD0FE780057FB8B /* UIKit.framework */,
+				F3C5BA671AD0FE6E0057FB8B /* CoreLocation.framework */,
 				F34E163D1ACF6F530002DFC3 /* Roomer */,
 				F34E16571ACF6F530002DFC3 /* RoomerTests */,
 				F34E163C1ACF6F530002DFC3 /* Products */,
@@ -104,6 +119,8 @@
 				F34E16681ACF73D20002DFC3 /* TableViewCell.m */,
 				F34E166A1ACF8CD30002DFC3 /* CellBoundedLabels.h */,
 				F34E166B1ACF8CD30002DFC3 /* CellBoundedLabels.m */,
+				F3C5BA721AD11B420057FB8B /* CoreLocationController.h */,
+				F3C5BA731AD11B420057FB8B /* CoreLocationController.m */,
 			);
 			path = Roomer;
 			sourceTree = "<group>";
@@ -240,6 +257,7 @@
 				F34E16691ACF73D20002DFC3 /* TableViewCell.m in Sources */,
 				F34E166C1ACF8CD30002DFC3 /* CellBoundedLabels.m in Sources */,
 				F34E16661ACF70F40002DFC3 /* TableViewController.m in Sources */,
+				F3C5BA741AD11B420057FB8B /* CoreLocationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +450,7 @@
 				F34E16601ACF6F530002DFC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F34E16611ACF6F530002DFC3 /* Build configuration list for PBXNativeTarget "RoomerTests" */ = {
 			isa = XCConfigurationList;
@@ -440,6 +459,7 @@
 				F34E16631ACF6F530002DFC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,15 +8,20 @@
 
 #import "TableViewController.h"
 #import "TableViewCell.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface TableViewController ()
+    
 
 @end
 
 @implementation TableViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     // Create Authorization Token!
     
     //Create Session Configuration
@@ -96,23 +101,17 @@
     }];
     [dataTask resume];
     
-  /*
-    for ( NSDictionary *attributes in roominfo )
-    {
-        NSLog(@"Available?: %@", attributes[@"room"]);
-    }
-   */
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     
-    _LengthOfAvailable = @[@"until 7pm", @"until 5pm", @"until 6pm", @"until 7pm", @"until 5pm", @"until 6pm"];
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - Table view data source
 
