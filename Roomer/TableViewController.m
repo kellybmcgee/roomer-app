@@ -8,7 +8,9 @@
 
 #import "TableViewController.h"
 #import "TableViewCell.h"
-#import <CoreLocation/CoreLocation.h>
+#import "RoomObject.h"
+
+@import CoreLocation;
 
 @interface TableViewController ()
     
@@ -16,11 +18,24 @@
 @end
 
 @implementation TableViewController
+CLLocation *userLocation;
 
+
+-(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    userLocation = manager.location;
+    NSLog(@"%@", userLocation);
+    [self.myLocMan stopUpdatingLocation];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.myLocMan = [[CLLocationManager alloc] init];
+    
+    [self.myLocMan setDelegate:self];
+    [self.myLocMan requestWhenInUseAuthorization];
+    [self.myLocMan requestAlwaysAuthorization];
+    [self.myLocMan startUpdatingLocation];
     
     // Create Authorization Token!
     
@@ -31,67 +46,43 @@
     [sessionConfiguration setHTTPAdditionalHeaders:@{ @"Authorization" : @"Bearer eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOlsiMjY2ZWJjYzgtYjBhMS00ZjgwLWFiMzktODUwNjE5OTBmZjk0Il0sImlzcyI6Imh0dHBzOlwvXC9vaWRjLm1pdC5lZHVcLyIsImp0aSI6ImVkNTUwYjg1LTViNzYtNDExMy1hYzIxLTVhZjAxODBlNzhjYyIsImlhdCI6MTQyODEyMDI0NH0.YQFjJI0L_hkDAyOAfYME-fbCypHmSaKLAq6B0AL0GT5C9uCUZMAAHbps7gn3H12pEE0-0Me57Abl2xIYJOKnnD26SeA1hOKx2VXeoAb6UcrrFlB8akacFOOiQ38m-7aZ6TGyy5gRMe8cyqE82DNk7_c4WiItpq26xI8MchSgkY6e1cCUSpCqFYMn4BTVqbX8vsKWzt9COK6kBGrUQt-hF9CpLoS6HL3v3c6PFNKVYltT67ylN7SRIloFiv5KBdDgnHKUehWkgHCXVUcVO3TaBsnIxPiFBXcrzb4cQkxCt8HcXHwgv_025fzaB7Nrf_70FwY8PVDBn21ioPw4p5bFjw" }];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"http://mocksvc.mulesoft.com/mocks/d421fa0f-073f-4c2e-b3bf-b15e4fd62ec3/classrooms/"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
         //Start JSON Parsing
-        NSMutableArray *roomNumber = [[NSMutableArray alloc] init];
-        NSMutableArray *roomDescription = [[NSMutableArray alloc] init];
-        NSMutableArray *roomStatus = [[NSMutableArray alloc] init];
-        NSMutableArray *availabilityDuration = [[NSMutableArray alloc] init];
-
         NSMutableDictionary *roomDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
         NSLog(@"%@", roomDictionary);
-        NSArray *apiroomdata = roomDictionary[@"data"];
-        for ( NSDictionary *attributes in apiroomdata )
-        {
-            [roomNumber addObject:attributes[@"room"]];
-            NSArray *features = attributes[@"features"];
-            for ( NSDictionary *featureName in features)
-            {
-                [roomDescription addObject:featureName[@"name"]];
-            }
-            NSArray *availabilities = attributes[@"availabilities"];
-            for ( NSDictionary *availabilityStatus in availabilities)
-            {
-                if(availabilityStatus[@"available"]) {
-                    [roomStatus addObject: @"Open"];
-                    NSString *endDateAndTime = availabilityStatus[@"end"];
-                    NSCharacterSet *doNotWantT = [NSCharacterSet characterSetWithCharactersInString:@"T"];
-                    NSString *noT = [[endDateAndTime componentsSeparatedByCharactersInSet: doNotWantT] componentsJoinedByString: @" "];
-                    NSCharacterSet *doNotWantZ = [NSCharacterSet characterSetWithCharactersInString:@"Z"];
-                    NSString *noTorZ = [[noT componentsSeparatedByCharactersInSet: doNotWantZ] componentsJoinedByString: @""];
-                    noTorZ = [noTorZ stringByAppendingString:@".000"];
-                    
-                    NSString *endTime = [endDateAndTime componentsSeparatedByString:@"T"][1];
-                    NSString *hours =[endTime componentsSeparatedByString:@":"][0];
-                    NSString *minutes =[endTime componentsSeparatedByString:@":"][1];
-                    int number = [hours intValue];
-                    if (number >=4){
-                        number = number - 4;
-                    }
-                    else{
-                        number = number + 21;
-                    }
-                    NSString *amPm;
-                    if(number <12){
-                        amPm = @" am";
-                    }
-                    else {
-                        number = number - 12;
-                        amPm = @" pm";
-                    }
-                    hours = [NSString stringWithFormat:@"%d",number];
-                    NSString *finalTime = [[[[@"Until " stringByAppendingString:hours] stringByAppendingString:@":"] stringByAppendingString:minutes] stringByAppendingString:amPm];
-                    [availabilityDuration addObject: finalTime];
-                }
-                else {
-                    [roomStatus addObject: @"Closed"];
-                }
-            }
-            
+        NSMutableArray *allRooms = [[NSMutableArray alloc] init];
+        for (NSDictionary *room in roomDictionary[@"data"]){
+            RoomObject *currentRoom = [[RoomObject alloc] init];
+            [currentRoom roomFromDictionary:room];
+            [allRooms addObject:currentRoom];
         }
-        self.RoomNumber = roomNumber;
-        self.Description = roomDescription;
-        self.Availability = roomStatus;
-        self.LengthOfAvailable = availabilityDuration;
+        NSArray *sortedArray = [allRooms sortedArrayUsingComparator:^NSComparisonResult(RoomObject *r1, RoomObject *r2){
+            
+            NSNumber *r1Distance = [NSNumber numberWithDouble:[r1.location distanceFromLocation:userLocation]];
+            NSNumber *r2Distance = [NSNumber numberWithDouble:[r2.location distanceFromLocation:userLocation]];
+            
+            return [r1Distance compare:r2Distance];
+            
+        }];
+        
+        NSMutableArray *roomNumbers = [[NSMutableArray alloc] init];
+        NSMutableArray *descriptions = [[NSMutableArray alloc] init];
+        NSMutableArray *availabilities = [[NSMutableArray alloc] init];
+        NSMutableArray *availabilityDurations = [[NSMutableArray alloc] init];
+        
+        for (RoomObject *room in sortedArray)
+        {
+            [roomNumbers addObject:room.roomNumber];
+            [descriptions addObject:room.roomDescription];
+            [availabilities addObject:room.availability];
+            [availabilityDurations addObject:room.availabilityDuration];
+        }
+        
+        self.RoomNumber = roomNumbers;
+        self.Description = descriptions;
+        self.Availability = availabilities;
+        self.LengthOfAvailable = availabilityDurations;
+
         
         // 6
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -100,9 +91,6 @@
         });
     }];
     [dataTask resume];
-    
-    
-    
 }
 
 
@@ -112,6 +100,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    
+    [super viewDidAppear:animated];
+    
+    
+    
+}
 
 #pragma mark - Table view data source
 

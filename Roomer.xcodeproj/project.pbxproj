@@ -20,7 +20,9 @@
 		F3C5BA681AD0FE6E0057FB8B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C5BA671AD0FE6E0057FB8B /* CoreLocation.framework */; };
 		F3C5BA6A1AD0FE780057FB8B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C5BA691AD0FE780057FB8B /* UIKit.framework */; };
 		F3C5BA6C1AD0FE800057FB8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C5BA6B1AD0FE800057FB8B /* Foundation.framework */; };
-		F3C5BA741AD11B420057FB8B /* CoreLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C5BA731AD11B420057FB8B /* CoreLocationController.m */; };
+		F3CEE84B1AD2270F008DC474 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CEE84A1AD2270F008DC474 /* MapKit.framework */; };
+		F3CEE84F1AD22E25008DC474 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3CEE84E1AD22E25008DC474 /* Info.plist */; };
+		F3CEE8521AD230D6008DC474 /* RoomObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEE8511AD230D6008DC474 /* RoomObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +37,6 @@
 
 /* Begin PBXFileReference section */
 		F34E163B1ACF6F530002DFC3 /* Roomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F34E163F1ACF6F530002DFC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F34E16401ACF6F530002DFC3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F34E16421ACF6F530002DFC3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F34E16431ACF6F530002DFC3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -56,8 +57,10 @@
 		F3C5BA671AD0FE6E0057FB8B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F3C5BA691AD0FE780057FB8B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F3C5BA6B1AD0FE800057FB8B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		F3C5BA721AD11B420057FB8B /* CoreLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationController.h; sourceTree = "<group>"; };
-		F3C5BA731AD11B420057FB8B /* CoreLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLocationController.m; sourceTree = "<group>"; };
+		F3CEE84A1AD2270F008DC474 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F3CEE84E1AD22E25008DC474 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3CEE8501AD230D6008DC474 /* RoomObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomObject.h; sourceTree = "<group>"; };
+		F3CEE8511AD230D6008DC474 /* RoomObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,7 @@
 			files = (
 				F3C5BA6C1AD0FE800057FB8B /* Foundation.framework in Frameworks */,
 				F3C5BA6A1AD0FE780057FB8B /* UIKit.framework in Frameworks */,
+				F3CEE84B1AD2270F008DC474 /* MapKit.framework in Frameworks */,
 				F3C5BA681AD0FE6E0057FB8B /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +88,7 @@
 		F34E16321ACF6F530002DFC3 = {
 			isa = PBXGroup;
 			children = (
+				F3CEE84A1AD2270F008DC474 /* MapKit.framework */,
 				F3C5BA6B1AD0FE800057FB8B /* Foundation.framework */,
 				F3C5BA691AD0FE780057FB8B /* UIKit.framework */,
 				F3C5BA671AD0FE6E0057FB8B /* CoreLocation.framework */,
@@ -115,12 +120,12 @@
 				F34E163E1ACF6F530002DFC3 /* Supporting Files */,
 				F34E16641ACF70F40002DFC3 /* TableViewController.h */,
 				F34E16651ACF70F40002DFC3 /* TableViewController.m */,
+				F3CEE8501AD230D6008DC474 /* RoomObject.h */,
+				F3CEE8511AD230D6008DC474 /* RoomObject.m */,
 				F34E16671ACF73D20002DFC3 /* TableViewCell.h */,
 				F34E16681ACF73D20002DFC3 /* TableViewCell.m */,
 				F34E166A1ACF8CD30002DFC3 /* CellBoundedLabels.h */,
 				F34E166B1ACF8CD30002DFC3 /* CellBoundedLabels.m */,
-				F3C5BA721AD11B420057FB8B /* CoreLocationController.h */,
-				F3C5BA731AD11B420057FB8B /* CoreLocationController.m */,
 			);
 			path = Roomer;
 			sourceTree = "<group>";
@@ -128,7 +133,7 @@
 		F34E163E1ACF6F530002DFC3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F34E163F1ACF6F530002DFC3 /* Info.plist */,
+				F3CEE84E1AD22E25008DC474 /* Info.plist */,
 				F34E16401ACF6F530002DFC3 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -200,6 +205,12 @@
 				TargetAttributes = {
 					F34E163A1ACF6F530002DFC3 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = U67L2F8U5S;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					F34E16531ACF6F530002DFC3 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -231,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3CEE84F1AD22E25008DC474 /* Info.plist in Resources */,
 				F34E164A1ACF6F530002DFC3 /* Main.storyboard in Resources */,
 				F34E164F1ACF6F530002DFC3 /* LaunchScreen.xib in Resources */,
 				F34E164C1ACF6F530002DFC3 /* Images.xcassets in Resources */,
@@ -256,8 +268,8 @@
 				F34E16411ACF6F530002DFC3 /* main.m in Sources */,
 				F34E16691ACF73D20002DFC3 /* TableViewCell.m in Sources */,
 				F34E166C1ACF8CD30002DFC3 /* CellBoundedLabels.m in Sources */,
+				F3CEE8521AD230D6008DC474 /* RoomObject.m in Sources */,
 				F34E16661ACF70F40002DFC3 /* TableViewController.m in Sources */,
-				F3C5BA741AD11B420057FB8B /* CoreLocationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
