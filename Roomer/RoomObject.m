@@ -20,10 +20,11 @@
     else {
         self.roomDescription = @"";
     }
+    NSString *capacity = [NSString stringWithFormat:@"%@",[roomDict objectForKey:@"capacity"]];
+    NSString *fullCapacity = [capacity stringByAppendingString:@" capacity"];
+    self.roomDescription = [self.roomDescription stringByAppendingString:[@"\n" stringByAppendingString:fullCapacity]];
     
-    //NSDictionary *availabilityDict = [[roomDict objectForKey:@"availablilites"] objectAtIndex:0];
-        
-    /*NSArray *availabilities = roomDict[@"availabilities"];
+    NSArray *availabilities = roomDict[@"availabilities"];
     for ( NSDictionary *availabilityStatus in availabilities)
     {
         if(availabilityStatus[@"available"]) {
@@ -56,35 +57,17 @@
             }
             hours = [NSString stringWithFormat:@"%d",number];
             NSString *finalTime = [[[[@"Until " stringByAppendingString:hours] stringByAppendingString:@":"] stringByAppendingString:minutes] stringByAppendingString:amPm];
-            //[availabilityDuration addObject: finalTime];
             self.availabilityDuration = finalTime;
         }
         else {
-            //[roomStatus addObject: @"Closed"];
             self.availability = @"Closed";
             self.availabilityDuration = @"";
         }
-    }*/
+    }
 
-    
-    /*if([availabilityDict objectForKey:@"available"]) self.availability = @"open"; else self.availability = @"closed";
-    
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    NSDate *end = [df dateFromString:[availabilityDict objectForKey:@"end"]];
-    end = [end dateByAddingTimeInterval:(-60.0*60.0*4.0)];
-    NSString *dataString = [NSDateFormatter localizedStringFromDate:end dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
-    NSLog(dataString);
-    
-    self.availabilityDuration = [@"Until " stringByAppendingString:@""];*/
-    NSString *latitude = @"0";
-    if([roomDict objectForKey:@"latitude"] != nil){
-        latitude = ((NSString *)[roomDict objectForKey:@"latitude"]);
-    }
-    NSString *longitude  = @"0";;
-    if([roomDict objectForKey:@"longitude"] != nil){
-        longitude= ((NSString *)[roomDict objectForKey:@"longitude"]);
-    }
-    //self.location = [[CLLocation alloc] initWithLatitude:[latitude doubleValue] longitude:[longitude doubleValue]];
+    NSString *latitude = ((NSString *)[roomDict objectForKey:@"latitude"]);
+    NSString *longitude = ((NSString *)[roomDict objectForKey:@"longitude"]);
+    self.location = [[CLLocation alloc] initWithLatitude:[latitude doubleValue] longitude:[longitude doubleValue]];
 }
 
 @end

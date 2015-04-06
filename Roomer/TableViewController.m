@@ -56,7 +56,7 @@ CLLocation *userLocation;
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     
     //Configure Session Authentication [HEADERS]
-    [sessionConfiguration setHTTPAdditionalHeaders:@{ @"Authorization" : @"Bearer eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0MjgzNTE0MDgsImF1ZCI6WyJkNWVlODk5MC0xY2EwLTQ1OGMtYmQ2ZS04Mzg0ZDEzNzI4YTkiXSwiaXNzIjoiaHR0cHM6XC9cL29pZGMubWl0LmVkdVwvIiwianRpIjoiNjc0MWI1ZjUtY2UxOC00MDk5LTgxYTAtOGFmN2RlYjkxMGEzIiwiaWF0IjoxNDI4MzQ3ODA4fQ.ltqaZXixHwa25u-o2AaR1eijHP6xy8Pototjgj5eUDvi1axm18CNqTtWWMJn4XoCHA1NC-XGytJmhCNbqJGmdIfmGhlz1z9_HVjPQPdQvdHPvzYu4ytyke3itMR2LWCBO5YfrifE4SqTlpchsKCR3VpXciChUDjmALCxz5G95R_GGa5kgG_aSEbE4c3nlT5abxo9ln0CXAWRH5Pl90SvNaeBfxxtir4vRMEIJF4d33xkpncI2Na6cHNS5CGQ1dri-H56NVjc7zGVovLtNzQsq1TVWR-fTJ9RWQgdM81Sz2arBZTrq__0DIWY5CGtKeFnQGC5290oTwS1WeHak-VOGw" }];
+    [sessionConfiguration setHTTPAdditionalHeaders:@{ @"Authorization" : @"Bearer eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0MjgzNTYwNjcsImF1ZCI6WyJkNWVlODk5MC0xY2EwLTQ1OGMtYmQ2ZS04Mzg0ZDEzNzI4YTkiXSwiaXNzIjoiaHR0cHM6XC9cL29pZGMubWl0LmVkdVwvIiwianRpIjoiZWJjMmNkZmUtYzhjYS00OTY0LWJiMDMtYWYxNzNiODM4MzY5IiwiaWF0IjoxNDI4MzUyNDY3fQ.JoB3UxELaDuLzaHCHhceiguJSGD6-Q_mx5A1NI2H-8_hKcjaTduWcKVLrRPHUvAsR8qHhO0cwYgJ13Y9f-_K8lxyPqCAIf3NAA01gMjgvqT8toyTWbzDweCI8sO6GgB3i2V8-HOmIRlNrKczBpbwgfSK02vPZ0PoKV-7UjR4xet5P4rSbH_KyzP5wRTfWubT3nbfVtP2dqMGbAk35ayp6E5GEfDNGyo-OvxeE6bsG8DPlMT-62zjxeERi9_DOrWa_PuXAnkDjKnAB7p4Yd65Vbzy7woP9k5DmBCaovXvlMaO30JxSretv9F557zJcf6_lCpXzXn8fRMJ9XMqsXCgRQ" }];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:Nil];
     [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"https://mit-oauth-flow.cloudhub.io/"];
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"https://mit-oauth-flow.cloudhub.io/classrooms"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -68,34 +68,39 @@ CLLocation *userLocation;
         for (NSMutableDictionary *room in roomDictionary[@"data"]){
             RoomObject *currentRoom = [[RoomObject alloc] init];
             [currentRoom roomFromDictionary:room];
+            if([currentRoom.roomNumber isEqual:@"35-308"]) {
+                if([[room objectForKey:@"latitude" ] isEqual:@"<null>"] && [[room   objectForKey:@"longitude" ] isEqual:@"<null>"]) {
+                continue;
+            }
+        }
             [allRooms addObject:currentRoom];
         }
-        /*NSArray *sortedArray = [allRooms sortedArrayUsingComparator:^NSComparisonResult(RoomObject *r1, RoomObject *r2){
+        NSArray *sortedArray = [allRooms sortedArrayUsingComparator:^NSComparisonResult(RoomObject *r1, RoomObject *r2){
             
             NSNumber *r1Distance = [NSNumber numberWithDouble:[r1.location distanceFromLocation:userLocation]];
             NSNumber *r2Distance = [NSNumber numberWithDouble:[r2.location distanceFromLocation:userLocation]];
             
             return [r1Distance compare:r2Distance];
             
-        }];*/
+        }];
         
         NSMutableArray *roomNumbers = [[NSMutableArray alloc] init];
         NSMutableArray *descriptions = [[NSMutableArray alloc] init];
-        //NSMutableArray *availabilities = [[NSMutableArray alloc] init];
-        //NSMutableArray *availabilityDurations = [[NSMutableArray alloc] init];
+        NSMutableArray *availabilities = [[NSMutableArray alloc] init];
+        NSMutableArray *availabilityDurations = [[NSMutableArray alloc] init];
         
-        for (RoomObject *room in allRooms)
+        for (RoomObject *room in sortedArray)
         {
             [roomNumbers addObject:room.roomNumber];
             [descriptions addObject:room.roomDescription];
-            //[availabilities addObject:room.availability];
-            //[availabilityDurations addObject:room.availabilityDuration];
+            [availabilities addObject:room.availability];
+            [availabilityDurations addObject:room.availabilityDuration];
         }
         
         self.RoomNumber = roomNumbers;
         self.Description = descriptions;
-        //self.Availability = availabilities;
-        //self.LengthOfAvailable = availabilityDurations;
+        self.Availability = availabilities;
+        self.LengthOfAvailable = availabilityDurations;
 
         
         // 6
