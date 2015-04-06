@@ -14,11 +14,16 @@
 {
     self.roomNumber = [roomDict objectForKey:@"room"];
     
-    self.roomDescription = [[[roomDict objectForKey:@"features"] objectAtIndex:0] objectForKey:@"name"];
+    if ([[roomDict objectForKey:@"features"] count] > 0){
+        self.roomDescription = [[[roomDict objectForKey:@"features"] objectAtIndex:0] objectForKey:@"name"];
+    }
+    else {
+        self.roomDescription = @"";
+    }
     
     //NSDictionary *availabilityDict = [[roomDict objectForKey:@"availablilites"] objectAtIndex:0];
         
-    NSArray *availabilities = roomDict[@"availabilities"];
+    /*NSArray *availabilities = roomDict[@"availabilities"];
     for ( NSDictionary *availabilityStatus in availabilities)
     {
         if(availabilityStatus[@"available"]) {
@@ -59,7 +64,7 @@
             self.availability = @"Closed";
             self.availabilityDuration = @"";
         }
-    }
+    }*/
 
     
     /*if([availabilityDict objectForKey:@"available"]) self.availability = @"open"; else self.availability = @"closed";
@@ -71,11 +76,15 @@
     NSLog(dataString);
     
     self.availabilityDuration = [@"Until " stringByAppendingString:@""];*/
-    
-    NSString *latitude = ((NSString *)[roomDict objectForKey:@"latitude"]);
-    NSString *longitude = ((NSString *)[roomDict objectForKey:@"longitude"]);
-
-    self.location = [[CLLocation alloc] initWithLatitude:[latitude doubleValue] longitude:[longitude doubleValue]];
+    NSString *latitude = @"0";
+    if([roomDict objectForKey:@"latitude"] != nil){
+        latitude = ((NSString *)[roomDict objectForKey:@"latitude"]);
+    }
+    NSString *longitude  = @"0";;
+    if([roomDict objectForKey:@"longitude"] != nil){
+        longitude= ((NSString *)[roomDict objectForKey:@"longitude"]);
+    }
+    //self.location = [[CLLocation alloc] initWithLatitude:[latitude doubleValue] longitude:[longitude doubleValue]];
 }
 
 @end

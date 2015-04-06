@@ -17,9 +17,22 @@
 
 @end
 
+@interface NSURLRequest (DummyInterface)
++ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString*)host;
++ (void)setAllowsAnyHTTPSCertificate:(BOOL)allow forHost:(NSString*)host;
+@end
+
 @implementation TableViewController
 CLLocation *userLocation;
 
+- (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential *))completionHandler{
+    if([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]){
+        //if([challenge.protectionSpace.host isEqualToString:@"mit.edu"]){
+        NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+        completionHandler(NSURLSessionAuthChallengeUseCredential,credential);
+        //}
+    }
+}
 
 -(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     userLocation = manager.location;
@@ -43,45 +56,46 @@ CLLocation *userLocation;
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     
     //Configure Session Authentication [HEADERS]
-    [sessionConfiguration setHTTPAdditionalHeaders:@{ @"Authorization" : @"Bearer eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOlsiMjY2ZWJjYzgtYjBhMS00ZjgwLWFiMzktODUwNjE5OTBmZjk0Il0sImlzcyI6Imh0dHBzOlwvXC9vaWRjLm1pdC5lZHVcLyIsImp0aSI6ImVkNTUwYjg1LTViNzYtNDExMy1hYzIxLTVhZjAxODBlNzhjYyIsImlhdCI6MTQyODEyMDI0NH0.YQFjJI0L_hkDAyOAfYME-fbCypHmSaKLAq6B0AL0GT5C9uCUZMAAHbps7gn3H12pEE0-0Me57Abl2xIYJOKnnD26SeA1hOKx2VXeoAb6UcrrFlB8akacFOOiQ38m-7aZ6TGyy5gRMe8cyqE82DNk7_c4WiItpq26xI8MchSgkY6e1cCUSpCqFYMn4BTVqbX8vsKWzt9COK6kBGrUQt-hF9CpLoS6HL3v3c6PFNKVYltT67ylN7SRIloFiv5KBdDgnHKUehWkgHCXVUcVO3TaBsnIxPiFBXcrzb4cQkxCt8HcXHwgv_025fzaB7Nrf_70FwY8PVDBn21ioPw4p5bFjw" }];
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"http://mocksvc.mulesoft.com/mocks/d421fa0f-073f-4c2e-b3bf-b15e4fd62ec3/classrooms/"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        
+    [sessionConfiguration setHTTPAdditionalHeaders:@{ @"Authorization" : @"Bearer eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0MjgzNTE0MDgsImF1ZCI6WyJkNWVlODk5MC0xY2EwLTQ1OGMtYmQ2ZS04Mzg0ZDEzNzI4YTkiXSwiaXNzIjoiaHR0cHM6XC9cL29pZGMubWl0LmVkdVwvIiwianRpIjoiNjc0MWI1ZjUtY2UxOC00MDk5LTgxYTAtOGFmN2RlYjkxMGEzIiwiaWF0IjoxNDI4MzQ3ODA4fQ.ltqaZXixHwa25u-o2AaR1eijHP6xy8Pototjgj5eUDvi1axm18CNqTtWWMJn4XoCHA1NC-XGytJmhCNbqJGmdIfmGhlz1z9_HVjPQPdQvdHPvzYu4ytyke3itMR2LWCBO5YfrifE4SqTlpchsKCR3VpXciChUDjmALCxz5G95R_GGa5kgG_aSEbE4c3nlT5abxo9ln0CXAWRH5Pl90SvNaeBfxxtir4vRMEIJF4d33xkpncI2Na6cHNS5CGQ1dri-H56NVjc7zGVovLtNzQsq1TVWR-fTJ9RWQgdM81Sz2arBZTrq__0DIWY5CGtKeFnQGC5290oTwS1WeHak-VOGw" }];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:Nil];
+    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"https://mit-oauth-flow.cloudhub.io/"];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"https://mit-oauth-flow.cloudhub.io/classrooms"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        //NSLog(@"%@", dataTask);
         //Start JSON Parsing
         NSMutableDictionary *roomDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
         NSLog(@"%@", roomDictionary);
         NSMutableArray *allRooms = [[NSMutableArray alloc] init];
-        for (NSDictionary *room in roomDictionary[@"data"]){
+        for (NSMutableDictionary *room in roomDictionary[@"data"]){
             RoomObject *currentRoom = [[RoomObject alloc] init];
             [currentRoom roomFromDictionary:room];
             [allRooms addObject:currentRoom];
         }
-        NSArray *sortedArray = [allRooms sortedArrayUsingComparator:^NSComparisonResult(RoomObject *r1, RoomObject *r2){
+        /*NSArray *sortedArray = [allRooms sortedArrayUsingComparator:^NSComparisonResult(RoomObject *r1, RoomObject *r2){
             
             NSNumber *r1Distance = [NSNumber numberWithDouble:[r1.location distanceFromLocation:userLocation]];
             NSNumber *r2Distance = [NSNumber numberWithDouble:[r2.location distanceFromLocation:userLocation]];
             
             return [r1Distance compare:r2Distance];
             
-        }];
+        }];*/
         
         NSMutableArray *roomNumbers = [[NSMutableArray alloc] init];
         NSMutableArray *descriptions = [[NSMutableArray alloc] init];
-        NSMutableArray *availabilities = [[NSMutableArray alloc] init];
-        NSMutableArray *availabilityDurations = [[NSMutableArray alloc] init];
+        //NSMutableArray *availabilities = [[NSMutableArray alloc] init];
+        //NSMutableArray *availabilityDurations = [[NSMutableArray alloc] init];
         
-        for (RoomObject *room in sortedArray)
+        for (RoomObject *room in allRooms)
         {
             [roomNumbers addObject:room.roomNumber];
             [descriptions addObject:room.roomDescription];
-            [availabilities addObject:room.availability];
-            [availabilityDurations addObject:room.availabilityDuration];
+            //[availabilities addObject:room.availability];
+            //[availabilityDurations addObject:room.availabilityDuration];
         }
         
         self.RoomNumber = roomNumbers;
         self.Description = descriptions;
-        self.Availability = availabilities;
-        self.LengthOfAvailable = availabilityDurations;
+        //self.Availability = availabilities;
+        //self.LengthOfAvailable = availabilityDurations;
 
         
         // 6
@@ -110,6 +124,7 @@ CLLocation *userLocation;
 }
 
 #pragma mark - Table view data source
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface TableViewController : UITableViewController<CLLocationManagerDelegate>
+@interface TableViewController : UITableViewController<CLLocationManagerDelegate, NSURLSessionDataDelegate>
 
 @property (nonatomic, strong) NSArray *RoomNumber;
 @property (nonatomic, strong) NSArray *Description;
@@ -17,5 +17,6 @@
 @property (nonatomic, strong) NSArray *LengthOfAvailable;
 
 @property (strong, nonatomic) CLLocationManager *myLocMan;
+- (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential *))completionHandler;
 
 @end
