@@ -27,10 +27,8 @@ CLLocation *userLocation;
 
 - (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential *))completionHandler{
     if([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]){
-        //if([challenge.protectionSpace.host isEqualToString:@"mit.edu"]){
         NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
         completionHandler(NSURLSessionAuthChallengeUseCredential,credential);
-        //}
     }
 }
 
@@ -56,7 +54,7 @@ CLLocation *userLocation;
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     
     //Configure Session Authentication [HEADERS]
-    [sessionConfiguration setHTTPAdditionalHeaders:@{ @"Authorization" : @"Bearer eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0MjgzNTYwNjcsImF1ZCI6WyJkNWVlODk5MC0xY2EwLTQ1OGMtYmQ2ZS04Mzg0ZDEzNzI4YTkiXSwiaXNzIjoiaHR0cHM6XC9cL29pZGMubWl0LmVkdVwvIiwianRpIjoiZWJjMmNkZmUtYzhjYS00OTY0LWJiMDMtYWYxNzNiODM4MzY5IiwiaWF0IjoxNDI4MzUyNDY3fQ.JoB3UxELaDuLzaHCHhceiguJSGD6-Q_mx5A1NI2H-8_hKcjaTduWcKVLrRPHUvAsR8qHhO0cwYgJ13Y9f-_K8lxyPqCAIf3NAA01gMjgvqT8toyTWbzDweCI8sO6GgB3i2V8-HOmIRlNrKczBpbwgfSK02vPZ0PoKV-7UjR4xet5P4rSbH_KyzP5wRTfWubT3nbfVtP2dqMGbAk35ayp6E5GEfDNGyo-OvxeE6bsG8DPlMT-62zjxeERi9_DOrWa_PuXAnkDjKnAB7p4Yd65Vbzy7woP9k5DmBCaovXvlMaO30JxSretv9F557zJcf6_lCpXzXn8fRMJ9XMqsXCgRQ" }];
+    [sessionConfiguration setHTTPAdditionalHeaders:@{ @"Authorization" : @"Bearer eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0MjgzNjAwOTMsImF1ZCI6WyJkNWVlODk5MC0xY2EwLTQ1OGMtYmQ2ZS04Mzg0ZDEzNzI4YTkiXSwiaXNzIjoiaHR0cHM6XC9cL29pZGMubWl0LmVkdVwvIiwianRpIjoiOWZhMzZkMjgtOTkwZi00MzI1LTlhZDktMjAxMjU2ZjFjNmNkIiwiaWF0IjoxNDI4MzU2NDkzfQ.WLGUCuvleY_RG6iGAQrhVfuKPATmg5Ovlvf93We5gvQ2SVBDjBC_-E52jPRWIT_RP5swqKlevFqEOv7wtxG4DN2h6Vw_OQD6tqyXGQ5ceAi_sg2pC_qHpKAoTvmZYGc4hP254zQA_Xqq8s4p4GOKGDPJtRZptSjobKWXYe67A143gG_mEi2vgAUn7ZvKOcDD2mekmYEE3XJ7-egLnw1o_1Lf8pu_t0A9f9KwKC7GaaKIHYYW1sxcBMbhJrdFpkzq6kYJRAlaLVfK_Zp3jIlZsobd-m1ynYm_oDqlgKK668zfusqDXeO2QECgiFK51h4K4bjl3l3tLVnl-3DP5Sz94A" }];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:Nil];
     [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"https://mit-oauth-flow.cloudhub.io/"];
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"https://mit-oauth-flow.cloudhub.io/classrooms"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -88,6 +86,7 @@ CLLocation *userLocation;
         NSMutableArray *descriptions = [[NSMutableArray alloc] init];
         NSMutableArray *availabilities = [[NSMutableArray alloc] init];
         NSMutableArray *availabilityDurations = [[NSMutableArray alloc] init];
+        NSMutableArray *capacity = [[NSMutableArray alloc] init];
         
         for (RoomObject *room in sortedArray)
         {
@@ -95,12 +94,14 @@ CLLocation *userLocation;
             [descriptions addObject:room.roomDescription];
             [availabilities addObject:room.availability];
             [availabilityDurations addObject:room.availabilityDuration];
+            [capacity addObject:room.capacity];
         }
         
         self.RoomNumber = roomNumbers;
         self.Description = descriptions;
         self.Availability = availabilities;
         self.LengthOfAvailable = availabilityDurations;
+        self.capacities = capacity;
 
         
         // 6
@@ -153,7 +154,14 @@ CLLocation *userLocation;
     cell.RoomNumberLabel.text = _RoomNumber[row];
     cell.DescriptionLabel.text = _Description[row];
     cell.AvailabilityLabel.text = _Availability[row];
+    if([cell.AvailabilityLabel.text isEqual: @"Open"]){
+        cell.AvailabilityLabel.textColor = [UIColor greenColor];
+    }
+    else {
+        cell.AvailabilityLabel.textColor = [UIColor redColor];
+    }
     cell.LengthOfAvailableLabel.text = _LengthOfAvailable[row];
+    cell.CapacityLabel.text = _capacities[row];
     
     return cell;
 }

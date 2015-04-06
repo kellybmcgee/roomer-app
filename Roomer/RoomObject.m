@@ -22,7 +22,7 @@
     }
     NSString *capacity = [NSString stringWithFormat:@"%@",[roomDict objectForKey:@"capacity"]];
     NSString *fullCapacity = [capacity stringByAppendingString:@" capacity"];
-    self.roomDescription = [self.roomDescription stringByAppendingString:[@"\n" stringByAppendingString:fullCapacity]];
+    self.capacity = fullCapacity;
     
     NSArray *availabilities = roomDict[@"availabilities"];
     for ( NSDictionary *availabilityStatus in availabilities)

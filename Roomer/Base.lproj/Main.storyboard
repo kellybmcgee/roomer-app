@@ -53,39 +53,66 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qxo-3s-jZp" id="ydL-Eo-lNw">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3CT-2f-OCd" customClass="CellBoundedLabels">
-                                            <rect key="frame" x="8" y="8" width="82" height="29"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMU-Kg-WVo" customClass="CellBoundedLabels">
+                                            <rect key="frame" x="8" y="31" width="513" height="33"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzn-rb-Nrc" customClass="CellBoundedLabels">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzn-rb-Nrc" customClass="CellBoundedLabels">
                                             <rect key="frame" x="508" y="50" width="84" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qza-eO-zTF" customClass="CellBoundedLabels">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qza-eO-zTF" customClass="CellBoundedLabels">
                                             <rect key="frame" x="537" y="11" width="55" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMU-Kg-WVo" customClass="CellBoundedLabels">
-                                            <rect key="frame" x="8" y="39" width="513" height="33"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3M-c4-ME8" customClass="CellBoundedLabels">
+                                            <rect key="frame" x="8" y="50" width="513" height="33"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3CT-2f-OCd" customClass="CellBoundedLabels">
+                                            <rect key="frame" x="8" y="5" width="82" height="29"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="r3M-c4-ME8" firstAttribute="top" secondItem="3CT-2f-OCd" secondAttribute="bottom" constant="13" id="4md-DJ-z7f"/>
+                                        <constraint firstItem="r3M-c4-ME8" firstAttribute="leading" secondItem="ydL-Eo-lNw" secondAttribute="leadingMargin" id="9qI-nt-IZa"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="r3M-c4-ME8" secondAttribute="trailing" constant="71" id="M5D-Cs-CUb"/>
+                                        <constraint firstItem="r3M-c4-ME8" firstAttribute="leading" secondItem="ydL-Eo-lNw" secondAttribute="leadingMargin" id="NHh-T9-m7l"/>
+                                        <constraint firstAttribute="centerY" secondItem="Qza-eO-zTF" secondAttribute="centerY" constant="17.5" id="Ued-i2-uZe"/>
+                                        <constraint firstAttribute="centerY" secondItem="NMU-Kg-WVo" secondAttribute="centerY" constant="-7.5" id="WaN-as-399"/>
+                                        <constraint firstAttribute="centerY" secondItem="3CT-2f-OCd" secondAttribute="centerY" constant="17.5" id="XQ2-uW-h0I"/>
                                         <constraint firstItem="3CT-2f-OCd" firstAttribute="leading" secondItem="ydL-Eo-lNw" secondAttribute="leadingMargin" id="Yym-x6-cEF"/>
                                         <constraint firstItem="Uzn-rb-Nrc" firstAttribute="trailing" secondItem="ydL-Eo-lNw" secondAttribute="trailingMargin" id="ePu-cf-RXc"/>
+                                        <constraint firstAttribute="centerY" secondItem="3CT-2f-OCd" secondAttribute="centerY" constant="20.25" id="iJQ-Kc-1V0"/>
                                         <constraint firstItem="NMU-Kg-WVo" firstAttribute="leading" secondItem="ydL-Eo-lNw" secondAttribute="leadingMargin" id="kg0-hZ-p5e"/>
                                         <constraint firstItem="Qza-eO-zTF" firstAttribute="trailing" secondItem="ydL-Eo-lNw" secondAttribute="trailingMargin" id="lA7-8t-1P9"/>
+                                        <constraint firstAttribute="centerY" secondItem="r3M-c4-ME8" secondAttribute="centerY" constant="-26.5" id="oSZ-Ac-D0f"/>
+                                        <constraint firstAttribute="centerY" secondItem="Uzn-rb-Nrc" secondAttribute="centerY" constant="-20.5" id="ozl-SG-kvn"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="r3M-c4-ME8" secondAttribute="bottom" constant="-11" id="www-uk-nI4"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="XQ2-uW-h0I"/>
+                                            <exclude reference="4md-DJ-z7f"/>
+                                            <exclude reference="9qI-nt-IZa"/>
+                                            <exclude reference="M5D-Cs-CUb"/>
+                                            <exclude reference="www-uk-nI4"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="AvailabilityLabel" destination="Qza-eO-zTF" id="JH2-kn-M9P"/>
+                                    <outlet property="CapacityLabel" destination="r3M-c4-ME8" id="Gnj-O7-JH6"/>
                                     <outlet property="DescriptionLabel" destination="NMU-Kg-WVo" id="8bQ-t2-9ZT"/>
                                     <outlet property="LengthOfAvailableLabel" destination="Uzn-rb-Nrc" id="Ay7-fc-fza"/>
                                     <outlet property="RoomNumberLabel" destination="3CT-2f-OCd" id="AGf-5B-Olb"/>

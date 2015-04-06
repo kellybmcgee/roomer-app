@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSString *roomDescription;
 @property (strong, nonatomic) NSString *availability;
 @property (strong, nonatomic) NSString *availabilityDuration;
+@property (strong, nonatomic) NSString *capacity;
 @property (strong, nonatomic) CLLocation *location;
 
 - (void) roomFromDictionary:(NSDictionary *)roomDict;
