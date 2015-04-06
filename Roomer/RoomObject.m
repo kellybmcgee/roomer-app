@@ -13,7 +13,7 @@
 - (void) roomFromDictionary:(NSDictionary *)roomDict
 {
     self.roomNumber = [roomDict objectForKey:@"room"];
-    //s
+    
     if ([[roomDict objectForKey:@"features"] count] > 0){
         self.roomDescription = [[[roomDict objectForKey:@"features"] objectAtIndex:0] objectForKey:@"name"];
     }
