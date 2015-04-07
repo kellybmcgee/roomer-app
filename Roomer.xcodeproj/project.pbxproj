@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F335037F1AD48E38009FCBAB /* roomer-logo-1.png in Resources */ = {isa = PBXBuildFile; fileRef = F335037E1AD48E38009FCBAB /* roomer-logo-1.png */; };
 		F34E16411ACF6F530002DFC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16401ACF6F530002DFC3 /* main.m */; };
 		F34E16441ACF6F530002DFC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16431ACF6F530002DFC3 /* AppDelegate.m */; };
 		F34E16471ACF6F530002DFC3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16461ACF6F530002DFC3 /* ViewController.m */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F335037E1AD48E38009FCBAB /* roomer-logo-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "roomer-logo-1.png"; sourceTree = "<group>"; };
 		F34E163B1ACF6F530002DFC3 /* Roomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34E16401ACF6F530002DFC3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F34E16421ACF6F530002DFC3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		F34E163E1ACF6F530002DFC3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F335037E1AD48E38009FCBAB /* roomer-logo-1.png */,
 				F3CEE84E1AD22E25008DC474 /* Info.plist */,
 				F34E16401ACF6F530002DFC3 /* main.m */,
 			);
@@ -250,6 +253,7 @@
 			files = (
 				F3CEE84F1AD22E25008DC474 /* Info.plist in Resources */,
 				F34E164A1ACF6F530002DFC3 /* Main.storyboard in Resources */,
+				F335037F1AD48E38009FCBAB /* roomer-logo-1.png in Resources */,
 				F34E164F1ACF6F530002DFC3 /* LaunchScreen.xib in Resources */,
 				F34E164C1ACF6F530002DFC3 /* Images.xcassets in Resources */,
 				F3CEE8561AD3B2DB008DC474 /* Comfortaa-Regular.ttf in Resources */,

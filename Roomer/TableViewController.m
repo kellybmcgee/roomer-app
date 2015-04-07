@@ -54,14 +54,14 @@ CLLocation *userLocation;
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     
     //Configure Session Authentication [HEADERS]
-    [sessionConfiguration setHTTPAdditionalHeaders:@{ @"Authorization" : @"Bearer eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0MjgzNjAwOTMsImF1ZCI6WyJkNWVlODk5MC0xY2EwLTQ1OGMtYmQ2ZS04Mzg0ZDEzNzI4YTkiXSwiaXNzIjoiaHR0cHM6XC9cL29pZGMubWl0LmVkdVwvIiwianRpIjoiOWZhMzZkMjgtOTkwZi00MzI1LTlhZDktMjAxMjU2ZjFjNmNkIiwiaWF0IjoxNDI4MzU2NDkzfQ.WLGUCuvleY_RG6iGAQrhVfuKPATmg5Ovlvf93We5gvQ2SVBDjBC_-E52jPRWIT_RP5swqKlevFqEOv7wtxG4DN2h6Vw_OQD6tqyXGQ5ceAi_sg2pC_qHpKAoTvmZYGc4hP254zQA_Xqq8s4p4GOKGDPJtRZptSjobKWXYe67A143gG_mEi2vgAUn7ZvKOcDD2mekmYEE3XJ7-egLnw1o_1Lf8pu_t0A9f9KwKC7GaaKIHYYW1sxcBMbhJrdFpkzq6kYJRAlaLVfK_Zp3jIlZsobd-m1ynYm_oDqlgKK668zfusqDXeO2QECgiFK51h4K4bjl3l3tLVnl-3DP5Sz94A" }];
+    [sessionConfiguration setHTTPAdditionalHeaders:@{ @"Authorization" : @"Bearer eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0Mjg0NDc2NDYsImF1ZCI6WyIzNjAxOTk4OS1iOTZkLTQzM2MtODdkNi1kYTUwZGYzNGY4ZDAiXSwiaXNzIjoiaHR0cHM6XC9cL29pZGMubWl0LmVkdVwvIiwianRpIjoiMjcyY2JiYjAtMmMwNC00ODc2LWEyMjItNDhhMWZjNjEzNzkyIiwiaWF0IjoxNDI4NDQ0MDQ2fQ.VG0d29lg8_w0jIcnFuNK6VBX2Ey-_wzFoF_o-IN8gxeVw2sTNoZasUKIa5SX-fNaWoQ8JHMV5IDyUPv03g5wmo6WEDipSQJCYSuFO_J4vRCIGud9Q5nHU9Wp4dyl_GIaweNshP6ZT9RnrcWd9aWsyYEmR2RD57Fv4GH54whX-Zgd7PkSbc5qb02BkHAr3EPJ2TfDK88KIFTz7iRCDdB6OHWePLsoNN9bHNXq3Cq8jf68bMPGea0ga_dm0eb6wv_KgPd4JGcs_AwoUZia286OihssdTDzz4HDpnIe3E9T-cKzdXxRYmQ85lXKt-MRKWDdsf2l5Ygw01kJ3nShnkcqiw" }];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:Nil];
     [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"https://mit-oauth-flow.cloudhub.io/"];
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"https://mit-oauth-flow.cloudhub.io/classrooms"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         //NSLog(@"%@", dataTask);
         //Start JSON Parsing
         NSMutableDictionary *roomDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-        NSLog(@"%@", roomDictionary);
+        //NSLog(@"%@", roomDictionary);
         NSMutableArray *allRooms = [[NSMutableArray alloc] init];
         for (NSMutableDictionary *room in roomDictionary[@"data"]){
             RoomObject *currentRoom = [[RoomObject alloc] init];
@@ -81,6 +81,9 @@ CLLocation *userLocation;
             return [r1Distance compare:r2Distance];
             
         }];
+        /*NSString *latitude = @"42.3598";
+        NSString *longitude = @"-71.0921";
+        CLLocation *hardCodedLocation = [[CLLocation alloc] initWithLatitude:[latitude doubleValue] longitude:[longitude doubleValue]];*/
         
         
         NSMutableArray *roomNumbers = [[NSMutableArray alloc] init];
@@ -97,16 +100,46 @@ CLLocation *userLocation;
             [availabilities addObject:room.availability];
             [availabilityDurations addObject:room.availabilityDuration];
             [capacity addObject:room.capacity];
-            [distance addObject:[NSNumber numberWithDouble:[room.location distanceFromLocation:userLocation]]];
+            NSNumber *metersDistance =[NSNumber numberWithDouble:[room.location distanceFromLocation:userLocation]];
+            if([metersDistance compare:@(150)] > 0){
+                NSNumber *milesDistance = @([metersDistance floatValue]* 0.000621371);
+                NSString *distanceString = [milesDistance stringValue];
+                distanceString = [distanceString substringToIndex:(3)];
+                [distance addObject:[distanceString stringByAppendingString:@" mi"]];
+            }
+            else {
+                NSNumber *feetDistance = @([metersDistance floatValue]* 3.2808);
+                NSInteger *feetTruncated = [feetDistance integerValue];
+                int feetIntTruncated = (int) feetTruncated;
+                feetIntTruncated = (feetIntTruncated / 10) * 10;
+                feetDistance = [NSNumber numberWithInt:feetIntTruncated];
+                NSString *distanceString = [feetDistance stringValue];
+                [distance addObject:[distanceString stringByAppendingString:@" feet"]];
+            }
         }
         
-        [roomNumbers addObject:@"Room 1-111"];
+        /*[roomNumbers addObject:@"Room 1-111"];
         [descriptions addObject:@"Chalkboard"];
         [availabilities addObject:@"OPEN"];
         [availabilityDurations addObject: @"Until 9pm"];
         [capacity addObject:@"20 people"];
-        [distance addObject:@"20 feet away"];
-        
+        NSLog(@"%@", userLocation);
+        NSNumber *metersDistance =[NSNumber numberWithDouble:[hardCodedLocation distanceFromLocation:userLocation]];
+        if([metersDistance compare:@(150)] > 0){
+            NSNumber *milesDistance = @([metersDistance floatValue]* 0.000621371);
+            NSString *distanceString = [milesDistance stringValue];
+            distanceString = [distanceString substringToIndex:(3)];
+            [distance addObject:[distanceString stringByAppendingString:@" mi"]];
+        }
+        else {
+            NSNumber *feetDistance = @([metersDistance floatValue]* 3.2808);
+            NSInteger *feetTruncated = [feetDistance integerValue];
+            int feetIntTruncated = (int) feetTruncated;
+            feetIntTruncated = (feetIntTruncated / 10) * 10;
+            feetDistance = [NSNumber numberWithInt:feetIntTruncated];
+            NSString *distanceString = [feetDistance stringValue];
+            [distance addObject:[distanceString stringByAppendingString:@" feet"]];
+        }*/
         self.RoomNumber = roomNumbers;
         self.Description = descriptions;
         self.Availability = availabilities;
