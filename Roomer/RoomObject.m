@@ -68,6 +68,8 @@
     NSString *latitude = ((NSString *)[roomDict objectForKey:@"latitude"]);
     NSString *longitude = ((NSString *)[roomDict objectForKey:@"longitude"]);
     self.location = [[CLLocation alloc] initWithLatitude:[latitude doubleValue] longitude:[longitude doubleValue]];
+    
+    
 }
 
 @end

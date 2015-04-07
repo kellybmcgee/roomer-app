@@ -82,34 +82,37 @@ CLLocation *userLocation;
             
         }];
         
+        
         NSMutableArray *roomNumbers = [[NSMutableArray alloc] init];
         NSMutableArray *descriptions = [[NSMutableArray alloc] init];
         NSMutableArray *availabilities = [[NSMutableArray alloc] init];
         NSMutableArray *availabilityDurations = [[NSMutableArray alloc] init];
         NSMutableArray *capacity = [[NSMutableArray alloc] init];
+        NSMutableArray *distance = [[NSMutableArray alloc] init];
         
         for (RoomObject *room in sortedArray)
         {
-            [roomNumbers addObject:room.roomNumber];
+            [roomNumbers addObject:[@"Room " stringByAppendingString:room.roomNumber]];
             [descriptions addObject:room.roomDescription];
             [availabilities addObject:room.availability];
             [availabilityDurations addObject:room.availabilityDuration];
             [capacity addObject:room.capacity];
+            [distance addObject:[NSNumber numberWithDouble:[room.location distanceFromLocation:userLocation]]];
         }
         
-        [roomNumbers addObject:@"1-111"];
+        [roomNumbers addObject:@"Room 1-111"];
         [descriptions addObject:@"Chalkboard"];
         [availabilities addObject:@"OPEN"];
         [availabilityDurations addObject: @"Until 9pm"];
         [capacity addObject:@"20 people"];
-        
+        [distance addObject:@"20 feet away"];
         
         self.RoomNumber = roomNumbers;
         self.Description = descriptions;
         self.Availability = availabilities;
         self.LengthOfAvailable = availabilityDurations;
         self.capacities = capacity;
-        
+        self.distances = distance;
         
         // 6
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -171,6 +174,7 @@ CLLocation *userLocation;
     }*/
     cell.LengthOfAvailableLabel.text = _LengthOfAvailable[row];
     cell.CapacityLabel.text = _capacities[row];
+    cell.DistanceLabel.text = _distances[row];
     
     return cell;
 }

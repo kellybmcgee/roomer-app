@@ -15,5 +15,6 @@
 @property(strong, nonatomic) IBOutlet UILabel *AvailabilityLabel;
 @property(strong, nonatomic) IBOutlet UILabel *LengthOfAvailableLabel;
 @property(strong, nonatomic) IBOutlet UILabel *CapacityLabel;
+@property(strong, nonatomic) IBOutlet UILabel *DistanceLabel;
 
 @end

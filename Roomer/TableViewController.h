@@ -16,8 +16,11 @@
 @property (nonatomic, strong) NSArray *Availability;
 @property (nonatomic, strong) NSArray *LengthOfAvailable;
 @property (nonatomic, strong) NSArray *capacities;
+@property (nonatomic, strong) NSArray *distances;
 
 @property (strong, nonatomic) CLLocationManager *myLocMan;
+
+
 - (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential *))completionHandler;
 
 @end
