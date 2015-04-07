@@ -97,12 +97,19 @@ CLLocation *userLocation;
             [capacity addObject:room.capacity];
         }
         
+        [roomNumbers addObject:@"1-111"];
+        [descriptions addObject:@"Chalkboard"];
+        [availabilities addObject:@"OPEN"];
+        [availabilityDurations addObject: @"Until 9pm"];
+        [capacity addObject:@"20 people"];
+        
+        
         self.RoomNumber = roomNumbers;
         self.Description = descriptions;
         self.Availability = availabilities;
         self.LengthOfAvailable = availabilityDurations;
         self.capacities = capacity;
-
+        
         
         // 6
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -111,6 +118,8 @@ CLLocation *userLocation;
         });
     }];
     [dataTask resume];
+    
+
 }
 
 
@@ -154,12 +163,12 @@ CLLocation *userLocation;
     cell.RoomNumberLabel.text = _RoomNumber[row];
     cell.DescriptionLabel.text = _Description[row];
     cell.AvailabilityLabel.text = _Availability[row];
-    if([cell.AvailabilityLabel.text isEqual: @"Open"]){
+    /*if([cell.AvailabilityLabel.text isEqual: @"OPEN"]){
         cell.AvailabilityLabel.textColor = [UIColor greenColor];
     }
     else {
         cell.AvailabilityLabel.textColor = [UIColor redColor];
-    }
+    }*/
     cell.LengthOfAvailableLabel.text = _LengthOfAvailable[row];
     cell.CapacityLabel.text = _capacities[row];
     

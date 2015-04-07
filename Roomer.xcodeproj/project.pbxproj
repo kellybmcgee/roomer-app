@@ -23,6 +23,8 @@
 		F3CEE84B1AD2270F008DC474 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CEE84A1AD2270F008DC474 /* MapKit.framework */; };
 		F3CEE84F1AD22E25008DC474 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3CEE84E1AD22E25008DC474 /* Info.plist */; };
 		F3CEE8521AD230D6008DC474 /* RoomObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEE8511AD230D6008DC474 /* RoomObject.m */; };
+		F3CEE8541AD3B281008DC474 /* Comfortaa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3CEE8531AD3B281008DC474 /* Comfortaa-Light.ttf */; };
+		F3CEE8561AD3B2DB008DC474 /* Comfortaa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3CEE8551AD3B2DB008DC474 /* Comfortaa-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		F3CEE84E1AD22E25008DC474 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3CEE8501AD230D6008DC474 /* RoomObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomObject.h; sourceTree = "<group>"; };
 		F3CEE8511AD230D6008DC474 /* RoomObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomObject.m; sourceTree = "<group>"; };
+		F3CEE8531AD3B281008DC474 /* Comfortaa-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Light.ttf"; sourceTree = "<group>"; };
+		F3CEE8551AD3B2DB008DC474 /* Comfortaa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 				F34E16451ACF6F530002DFC3 /* ViewController.h */,
 				F34E16461ACF6F530002DFC3 /* ViewController.m */,
 				F34E16481ACF6F530002DFC3 /* Main.storyboard */,
+				F3CEE8551AD3B2DB008DC474 /* Comfortaa-Regular.ttf */,
+				F3CEE8531AD3B281008DC474 /* Comfortaa-Light.ttf */,
 				F34E164B1ACF6F530002DFC3 /* Images.xcassets */,
 				F34E164D1ACF6F530002DFC3 /* LaunchScreen.xib */,
 				F34E163E1ACF6F530002DFC3 /* Supporting Files */,
@@ -246,6 +252,8 @@
 				F34E164A1ACF6F530002DFC3 /* Main.storyboard in Resources */,
 				F34E164F1ACF6F530002DFC3 /* LaunchScreen.xib in Resources */,
 				F34E164C1ACF6F530002DFC3 /* Images.xcassets in Resources */,
+				F3CEE8561AD3B2DB008DC474 /* Comfortaa-Regular.ttf in Resources */,
+				F3CEE8541AD3B281008DC474 /* Comfortaa-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

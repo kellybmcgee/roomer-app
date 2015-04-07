@@ -28,7 +28,7 @@
     for ( NSDictionary *availabilityStatus in availabilities)
     {
         if(availabilityStatus[@"available"]) {
-            //[roomStatus addObject: @"Open"];
+            //[roomStatus addObject: @"OPEN"];
             self.availability = @"Open";
             NSString *endDateAndTime = availabilityStatus[@"end"];
             NSCharacterSet *doNotWantT = [NSCharacterSet characterSetWithCharactersInString:@"T"];
@@ -60,7 +60,7 @@
             self.availabilityDuration = finalTime;
         }
         else {
-            self.availability = @"Closed";
+            self.availability = @"CLOSED";
             self.availabilityDuration = @"";
         }
     }
