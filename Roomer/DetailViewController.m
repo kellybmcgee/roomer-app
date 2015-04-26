@@ -7,12 +7,10 @@
 //
 
 #import "DetailViewController.h"
-
 @implementation DetailViewController
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
     _RoomNumberLabel.text = _DetailModual[0];
     _DescriptionLabel.text = _DetailModual[1];
     _AvailabilityLabel.text = _DetailModual[2];

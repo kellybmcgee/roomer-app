@@ -167,7 +167,6 @@ CLLocation *userLocation;
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         int row = [myIndexPath row];
         detailViewController.DetailModual = @[_RoomNumber[row], _Description[row], _Availability[row], _LengthOfAvailable[row], _capacities[row], _distances[row] ];
-        
     }
 }
 
@@ -177,14 +176,12 @@ CLLocation *userLocation;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated
+/*- (void)viewDidAppear:(BOOL)animated
 {
-    
-    [super viewDidAppear:animated];
-    
+    [super viewDidAppear:animated];
     
     
-}
+}*/
 
 #pragma mark - Table view data source
 

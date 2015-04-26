@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="1031" y="463"/>
         </scene>
-        <!--Rooms Near You-->
+        <!--Rooms-->
         <scene sceneID="qdi-ak-mLd">
             <objects>
-                <tableViewController title="Rooms Near You" id="ive-ao-JZI" customClass="TableViewController" sceneMemberID="viewController">
+                <tableViewController title="Rooms" id="ive-ao-JZI" customClass="TableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="JU2-Qv-HsQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,7 +272,7 @@
         <!--Navigation Controller-->
         <scene sceneID="hCQ-HG-aaF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zkz-3l-8qR" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zkz-3l-8qR" customClass="NavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zMz-CT-E9Y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
