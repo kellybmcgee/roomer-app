@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AccessToken.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

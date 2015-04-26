@@ -9,11 +9,14 @@
 #import "TableViewController.h"
 #import "TableViewCell.h"
 #import "RoomObject.h"
+#import "DetailViewController.h"
+#import "AppDelegate.h"
+
 
 @import CoreLocation;
 
 @interface TableViewController ()
-    
+
 
 @end
 
@@ -37,7 +40,7 @@ CLLocation *userLocation;
     NSLog(@"%@", userLocation);
     [self.myLocMan stopUpdatingLocation];
 }
-
+extern NSMutableDictionary *tokenDict;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -54,11 +57,16 @@ CLLocation *userLocation;
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     
     //Configure Session Authentication [HEADERS]
-    [sessionConfiguration setHTTPAdditionalHeaders:@{ @"Authorization" : @"Bearer eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0MjgzNjAwOTMsImF1ZCI6WyJkNWVlODk5MC0xY2EwLTQ1OGMtYmQ2ZS04Mzg0ZDEzNzI4YTkiXSwiaXNzIjoiaHR0cHM6XC9cL29pZGMubWl0LmVkdVwvIiwianRpIjoiOWZhMzZkMjgtOTkwZi00MzI1LTlhZDktMjAxMjU2ZjFjNmNkIiwiaWF0IjoxNDI4MzU2NDkzfQ.WLGUCuvleY_RG6iGAQrhVfuKPATmg5Ovlvf93We5gvQ2SVBDjBC_-E52jPRWIT_RP5swqKlevFqEOv7wtxG4DN2h6Vw_OQD6tqyXGQ5ceAi_sg2pC_qHpKAoTvmZYGc4hP254zQA_Xqq8s4p4GOKGDPJtRZptSjobKWXYe67A143gG_mEi2vgAUn7ZvKOcDD2mekmYEE3XJ7-egLnw1o_1Lf8pu_t0A9f9KwKC7GaaKIHYYW1sxcBMbhJrdFpkzq6kYJRAlaLVfK_Zp3jIlZsobd-m1ynYm_oDqlgKK668zfusqDXeO2QECgiFK51h4K4bjl3l3tLVnl-3DP5Sz94A" }];
+    /*[sessionConfiguration setHTTPAdditionalHeaders:@{ @"Authorization" : @"Bearer eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0Mjg0NDc2NDYsImF1ZCI6WyIzNjAxOTk4OS1iOTZkLTQzM2MtODdkNi1kYTUwZGYzNGY4ZDAiXSwiaXNzIjoiaHR0cHM6XC9cL29pZGMubWl0LmVkdVwvIiwianRpIjoiMjcyY2JiYjAtMmMwNC00ODc2LWEyMjItNDhhMWZjNjEzNzkyIiwiaWF0IjoxNDI4NDQ0MDQ2fQ.VG0d29lg8_w0jIcnFuNK6VBX2Ey-_wzFoF_o-IN8gxeVw2sTNoZasUKIa5SX-fNaWoQ8JHMV5IDyUPv03g5wmo6WEDipSQJCYSuFO_J4vRCIGud9Q5nHU9Wp4dyl_GIaweNshP6ZT9RnrcWd9aWsyYEmR2RD57Fv4GH54whX-Zgd7PkSbc5qb02BkHAr3EPJ2TfDK88KIFTz7iRCDdB6OHWePLsoNN9bHNXq3Cq8jf68bMPGea0ga_dm0eb6wv_KgPd4JGcs_AwoUZia286OihssdTDzz4HDpnIe3E9T-cKzdXxRYmQ85lXKt-MRKWDdsf2l5Ygw01kJ3nShnkcqiw" }];*/
+    
+    NSLog(@"%@", tokenDict);
+    NSString *accessToken = tokenDict[@"access_token"];
+    NSLog(@"%@",accessToken);
+    [sessionConfiguration setHTTPAdditionalHeaders:@{ @"Authorization" : [@"Bearer " stringByAppendingString: accessToken]}];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:Nil];
     [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"https://mit-oauth-flow.cloudhub.io/"];
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"https://mit-oauth-flow.cloudhub.io/classrooms"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        //NSLog(@"%@", dataTask);
+        NSLog(@"%@", dataTask);
         //Start JSON Parsing
         NSMutableDictionary *roomDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
         NSLog(@"%@", roomDictionary);
@@ -68,9 +76,9 @@ CLLocation *userLocation;
             [currentRoom roomFromDictionary:room];
             if([currentRoom.roomNumber isEqual:@"35-308"]) {
                 if([[room objectForKey:@"latitude" ] isEqual:@"<null>"] && [[room   objectForKey:@"longitude" ] isEqual:@"<null>"]) {
-                continue;
+                    continue;
+                }
             }
-        }
             [allRooms addObject:currentRoom];
         }
         NSArray *sortedArray = [allRooms sortedArrayUsingComparator:^NSComparisonResult(RoomObject *r1, RoomObject *r2){
@@ -81,28 +89,72 @@ CLLocation *userLocation;
             return [r1Distance compare:r2Distance];
             
         }];
+        /*NSString *latitude = @"42.3598";
+         NSString *longitude = @"-71.0921";
+         CLLocation *hardCodedLocation = [[CLLocation alloc] initWithLatitude:[latitude doubleValue] longitude:[longitude doubleValue]];*/
+        
         
         NSMutableArray *roomNumbers = [[NSMutableArray alloc] init];
         NSMutableArray *descriptions = [[NSMutableArray alloc] init];
         NSMutableArray *availabilities = [[NSMutableArray alloc] init];
         NSMutableArray *availabilityDurations = [[NSMutableArray alloc] init];
         NSMutableArray *capacity = [[NSMutableArray alloc] init];
+        NSMutableArray *distance = [[NSMutableArray alloc] init];
         
         for (RoomObject *room in sortedArray)
         {
-            [roomNumbers addObject:room.roomNumber];
+            [roomNumbers addObject:[@"Room " stringByAppendingString:room.roomNumber]];
             [descriptions addObject:room.roomDescription];
             [availabilities addObject:room.availability];
             [availabilityDurations addObject:room.availabilityDuration];
             [capacity addObject:room.capacity];
+            NSNumber *metersDistance =[NSNumber numberWithDouble:[room.location distanceFromLocation:userLocation]];
+            if([metersDistance compare:@(150)] > 0){
+                NSNumber *milesDistance = @([metersDistance floatValue]* 0.000621371);
+                NSString *distanceString = [milesDistance stringValue];
+                distanceString = [distanceString substringToIndex:(3)];
+                [distance addObject:[distanceString stringByAppendingString:@" mi"]];
+            }
+            else {
+                NSNumber *feetDistance = @([metersDistance floatValue]* 3.2808);
+                NSInteger *feetTruncated = [feetDistance integerValue];
+                int feetIntTruncated = (int) feetTruncated;
+                feetIntTruncated = (feetIntTruncated / 10) * 10;
+                feetDistance = [NSNumber numberWithInt:feetIntTruncated];
+                NSString *distanceString = [feetDistance stringValue];
+                [distance addObject:[distanceString stringByAppendingString:@" feet"]];
+            }
         }
         
+        [roomNumbers addObject:@"Room 1-111"];
+        [descriptions addObject:@"Chalkboard"];
+        [availabilities addObject:@"OPEN"];
+        [availabilityDurations addObject: @"Until 9pm"];
+        [capacity addObject:@"Capacity: 20 people"];
+        [distance addObject:@"200 Feet"];
+        /*NSLog(@"%@", userLocation);
+         NSNumber *metersDistance =[NSNumber numberWithDouble:[hardCodedLocation distanceFromLocation:userLocation]];
+         if([metersDistance compare:@(150)] > 0){
+         NSNumber *milesDistance = @([metersDistance floatValue]* 0.000621371);
+         NSString *distanceString = [milesDistance stringValue];
+         distanceString = [distanceString substringToIndex:(3)];
+         [distance addObject:[distanceString stringByAppendingString:@" mi"]];
+         }
+         else {
+         NSNumber *feetDistance = @([metersDistance floatValue]* 3.2808);
+         NSInteger *feetTruncated = [feetDistance integerValue];
+         int feetIntTruncated = (int) feetTruncated;
+         feetIntTruncated = (feetIntTruncated / 10) * 10;
+         feetDistance = [NSNumber numberWithInt:feetIntTruncated];
+         NSString *distanceString = [feetDistance stringValue];
+         [distance addObject:[distanceString stringByAppendingString:@" feet"]];
+         }*/
         self.RoomNumber = roomNumbers;
         self.Description = descriptions;
         self.Availability = availabilities;
         self.LengthOfAvailable = availabilityDurations;
         self.capacities = capacity;
-
+        self.distances = distance;
         
         // 6
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -111,8 +163,18 @@ CLLocation *userLocation;
         });
     }];
     [dataTask resume];
+    
+    
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([[segue identifier] isEqualToString:@"ShowDetails"]) {
+        DetailViewController *detailViewController = [segue destinationViewController];
+        NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
+        int row = [myIndexPath row];
+        detailViewController.DetailModual = @[_RoomNumber[row], _Description[row], _Availability[row], _LengthOfAvailable[row], _capacities[row], _distances[row] ];
+    }
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -120,14 +182,12 @@ CLLocation *userLocation;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    
-    [super viewDidAppear:animated];
-    
-    
-    
-}
+/*- (void)viewDidAppear:(BOOL)animated
+ {
+ [super viewDidAppear:animated];
+ 
+ 
+ }*/
 
 #pragma mark - Table view data source
 
@@ -154,61 +214,62 @@ CLLocation *userLocation;
     cell.RoomNumberLabel.text = _RoomNumber[row];
     cell.DescriptionLabel.text = _Description[row];
     cell.AvailabilityLabel.text = _Availability[row];
-    if([cell.AvailabilityLabel.text isEqual: @"Open"]){
-        cell.AvailabilityLabel.textColor = [UIColor greenColor];
-    }
-    else {
-        cell.AvailabilityLabel.textColor = [UIColor redColor];
-    }
+    /*if([cell.AvailabilityLabel.text isEqual: @"OPEN"]){
+     cell.AvailabilityLabel.textColor = [UIColor greenColor];
+     }
+     else {
+     cell.AvailabilityLabel.textColor = [UIColor redColor];
+     }*/
     cell.LengthOfAvailableLabel.text = _LengthOfAvailable[row];
     cell.CapacityLabel.text = _capacities[row];
+    cell.DistanceLabel.text = _distances[row];
     
     return cell;
 }
 
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
