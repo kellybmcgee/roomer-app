@@ -32,16 +32,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Roomer is easy " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t8J-yo-9FK">
-                                <rect key="frame" x="238" y="285" width="125" height="30"/>
-                                <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Start your study session here." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nCj-UX-zwv">
-                                <rect key="frame" x="159" y="312" width="283" height="30"/>
-                                <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yet-qX-IBv">
                                 <rect key="frame" x="206" y="350" width="188" height="25"/>
                                 <color key="backgroundColor" red="0.0" green="0.75252525250000002" blue="0.15861605779999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -59,16 +49,28 @@
                                     <segue destination="ive-ao-JZI" kind="show" id="eTs-x9-LyO"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Start your study session here." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cb-8n-ode">
+                                <rect key="frame" x="186" y="315" width="229" height="21"/>
+                                <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Roomer is easy " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skM-hP-pHc">
+                                <rect key="frame" x="238" y="286" width="124" height="21"/>
+                                <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.8980392157" green="0.88235294119999996" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="skM-hP-pHc" secondAttribute="centerX" id="37U-3i-d4T"/>
+                            <constraint firstAttribute="centerY" secondItem="skM-hP-pHc" secondAttribute="centerY" constant="3.5" id="HJP-Be-an7"/>
+                            <constraint firstAttribute="centerY" secondItem="2cb-8n-ode" secondAttribute="centerY" constant="-25.5" id="IX3-oF-oyT"/>
                             <constraint firstAttribute="centerX" secondItem="Yet-qX-IBv" secondAttribute="centerX" id="d55-Gz-YCz"/>
-                            <constraint firstAttribute="centerX" secondItem="nCj-UX-zwv" secondAttribute="centerX" id="fPr-la-I2k"/>
-                            <constraint firstAttribute="centerY" secondItem="nCj-UX-zwv" secondAttribute="centerY" constant="-27" id="tsF-q2-NLY"/>
-                            <constraint firstAttribute="centerX" secondItem="t8J-yo-9FK" secondAttribute="centerX" id="wQG-ae-OD3"/>
+                            <constraint firstAttribute="centerX" secondItem="2cb-8n-ode" secondAttribute="centerX" id="dao-Kb-6x8"/>
                             <constraint firstAttribute="centerY" secondItem="Yet-qX-IBv" secondAttribute="centerY" constant="-65" id="za2-0a-AvS"/>
-                            <constraint firstAttribute="centerY" secondItem="t8J-yo-9FK" secondAttribute="centerY" id="zsj-ja-QPa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sgv-S7-3S0"/>
@@ -176,6 +178,7 @@
                                     <outlet property="DistanceLabel" destination="a4D-VE-l5j" id="Ao0-PY-Ej8"/>
                                     <outlet property="LengthOfAvailableLabel" destination="Uzn-rb-Nrc" id="Ay7-fc-fza"/>
                                     <outlet property="RoomNumberLabel" destination="3CT-2f-OCd" id="AGf-5B-Olb"/>
+                                    <segue destination="Xp0-92-lPA" kind="show" identifier="ShowDetails" id="hgZ-3h-qfx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -188,6 +191,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ElE-P0-mXq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1748" y="408"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="kgO-yd-LJJ">
+            <objects>
+                <viewController id="Xp0-92-lPA" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o8G-wO-MPT"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Gc-z1-qyv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bmV-Yo-QqY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Availiablity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBN-gv-0QO">
+                                <rect key="frame" x="221" y="133" width="159" height="69"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length of Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbP-sJ-jvO">
+                                <rect key="frame" x="243" y="210" width="115" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVj-sP-IP9">
+                                <rect key="frame" x="267" y="239" width="67" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Features" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSF-oL-EiK">
+                                <rect key="frame" x="262" y="308" width="77" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capacity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8a-TD-O9i">
+                                <rect key="frame" x="266" y="350" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cz0-QS-Af8">
+                                <rect key="frame" x="256" y="386" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="KSF-oL-EiK" secondAttribute="centerX" id="4dm-xY-lZs"/>
+                            <constraint firstAttribute="centerX" secondItem="cz0-QS-Af8" secondAttribute="centerX" id="6f9-U3-dEV"/>
+                            <constraint firstAttribute="centerY" secondItem="AVj-sP-IP9" secondAttribute="centerY" constant="50.5" id="CyJ-j3-BnA"/>
+                            <constraint firstAttribute="centerX" secondItem="AVj-sP-IP9" secondAttribute="centerX" id="MW5-3f-dZX"/>
+                            <constraint firstAttribute="centerX" secondItem="o8a-TD-O9i" secondAttribute="centerX" id="Vkw-G5-aOY"/>
+                            <constraint firstAttribute="centerX" secondItem="vBN-gv-0QO" secondAttribute="centerX" id="htR-Ee-xh7"/>
+                            <constraint firstAttribute="centerX" secondItem="TbP-sJ-jvO" secondAttribute="centerX" id="ivp-05-Cmv"/>
+                            <constraint firstAttribute="centerY" secondItem="o8a-TD-O9i" secondAttribute="centerY" constant="-60.5" id="jmB-wO-cbX"/>
+                            <constraint firstAttribute="centerY" secondItem="KSF-oL-EiK" secondAttribute="centerY" constant="-20" id="oF8-Gx-qOi"/>
+                            <constraint firstAttribute="centerY" secondItem="cz0-QS-Af8" secondAttribute="centerY" constant="-96.5" id="q1L-eb-KkZ"/>
+                            <constraint firstAttribute="centerY" secondItem="TbP-sJ-jvO" secondAttribute="centerY" constant="79.5" id="uiE-gP-c9s"/>
+                            <constraint firstAttribute="centerY" secondItem="vBN-gv-0QO" secondAttribute="centerY" constant="132.5" id="yzS-uG-xUi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="AvailabilityLabel" destination="vBN-gv-0QO" id="cT8-B2-4B9"/>
+                        <outlet property="CapacityLabel" destination="o8a-TD-O9i" id="U91-xT-7TG"/>
+                        <outlet property="DescriptionLabel" destination="cz0-QS-Af8" id="0ZH-iT-1s4"/>
+                        <outlet property="DistanceLabel" destination="AVj-sP-IP9" id="aPy-Do-k2u"/>
+                        <outlet property="LengthOfAvailableLabel" destination="TbP-sJ-jvO" id="Blo-6X-UcS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qlI-Hy-lJB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2430" y="419"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hCQ-HG-aaF">

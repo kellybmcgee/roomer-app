@@ -21,6 +21,7 @@
 		F3C5BA681AD0FE6E0057FB8B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C5BA671AD0FE6E0057FB8B /* CoreLocation.framework */; };
 		F3C5BA6A1AD0FE780057FB8B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C5BA691AD0FE780057FB8B /* UIKit.framework */; };
 		F3C5BA6C1AD0FE800057FB8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C5BA6B1AD0FE800057FB8B /* Foundation.framework */; };
+		F3CB66BB1AEC7A6300898EF6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CB66BA1AEC7A6300898EF6 /* DetailViewController.m */; };
 		F3CEE84B1AD2270F008DC474 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CEE84A1AD2270F008DC474 /* MapKit.framework */; };
 		F3CEE84F1AD22E25008DC474 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3CEE84E1AD22E25008DC474 /* Info.plist */; };
 		F3CEE8521AD230D6008DC474 /* RoomObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEE8511AD230D6008DC474 /* RoomObject.m */; };
@@ -61,6 +62,8 @@
 		F3C5BA671AD0FE6E0057FB8B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F3C5BA691AD0FE780057FB8B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F3C5BA6B1AD0FE800057FB8B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F3CB66B91AEC7A5A00898EF6 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		F3CB66BA1AEC7A6300898EF6 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		F3CEE84A1AD2270F008DC474 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F3CEE84E1AD22E25008DC474 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3CEE8501AD230D6008DC474 /* RoomObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomObject.h; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 				F34E16681ACF73D20002DFC3 /* TableViewCell.m */,
 				F34E166A1ACF8CD30002DFC3 /* CellBoundedLabels.h */,
 				F34E166B1ACF8CD30002DFC3 /* CellBoundedLabels.m */,
+				F3CB66B91AEC7A5A00898EF6 /* DetailViewController.h */,
+				F3CB66BA1AEC7A6300898EF6 /* DetailViewController.m */,
 			);
 			path = Roomer;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 				F34E16471ACF6F530002DFC3 /* ViewController.m in Sources */,
 				F34E16441ACF6F530002DFC3 /* AppDelegate.m in Sources */,
 				F34E16411ACF6F530002DFC3 /* main.m in Sources */,
+				F3CB66BB1AEC7A6300898EF6 /* DetailViewController.m in Sources */,
 				F34E16691ACF73D20002DFC3 /* TableViewCell.m in Sources */,
 				F34E166C1ACF8CD30002DFC3 /* CellBoundedLabels.m in Sources */,
 				F3CEE8521AD230D6008DC474 /* RoomObject.m in Sources */,

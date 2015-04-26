@@ -9,6 +9,8 @@
 #import "TableViewController.h"
 #import "TableViewCell.h"
 #import "RoomObject.h"
+#import "DetailViewController.h"
+
 
 @import CoreLocation;
 
@@ -118,12 +120,13 @@ CLLocation *userLocation;
             }
         }
         
-        /*[roomNumbers addObject:@"Room 1-111"];
+        [roomNumbers addObject:@"Room 1-111"];
         [descriptions addObject:@"Chalkboard"];
         [availabilities addObject:@"OPEN"];
         [availabilityDurations addObject: @"Until 9pm"];
-        [capacity addObject:@"20 people"];
-        NSLog(@"%@", userLocation);
+        [capacity addObject:@"Capacity: 20 people"];
+        [distance addObject:@"200 Feet"];
+        /*NSLog(@"%@", userLocation);
         NSNumber *metersDistance =[NSNumber numberWithDouble:[hardCodedLocation distanceFromLocation:userLocation]];
         if([metersDistance compare:@(150)] > 0){
             NSNumber *milesDistance = @([metersDistance floatValue]* 0.000621371);
@@ -158,6 +161,15 @@ CLLocation *userLocation;
 
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([[segue identifier] isEqualToString:@"ShowDetails"]) {
+        DetailViewController *detailViewController = [segue destinationViewController];
+        NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
+        int row = [myIndexPath row];
+        detailViewController.DetailModual = @[_RoomNumber[row], _Description[row], _Availability[row], _LengthOfAvailable[row], _capacities[row], _distances[row] ];
+        
+    }
+}
 
 
 - (void)didReceiveMemoryWarning {
