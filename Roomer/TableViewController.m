@@ -10,6 +10,7 @@
 #import "TableViewCell.h"
 #import "RoomObject.h"
 #import "DetailViewController.h"
+#import "AppDelegate.h"
 
 
 @import CoreLocation;
@@ -39,7 +40,7 @@ CLLocation *userLocation;
     NSLog(@"%@", userLocation);
     [self.myLocMan stopUpdatingLocation];
 }
-
+extern NSMutableDictionary *tokenDict;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -56,14 +57,19 @@ CLLocation *userLocation;
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     
     //Configure Session Authentication [HEADERS]
-    [sessionConfiguration setHTTPAdditionalHeaders:@{ @"Authorization" : @"Bearer eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0Mjg0NDc2NDYsImF1ZCI6WyIzNjAxOTk4OS1iOTZkLTQzM2MtODdkNi1kYTUwZGYzNGY4ZDAiXSwiaXNzIjoiaHR0cHM6XC9cL29pZGMubWl0LmVkdVwvIiwianRpIjoiMjcyY2JiYjAtMmMwNC00ODc2LWEyMjItNDhhMWZjNjEzNzkyIiwiaWF0IjoxNDI4NDQ0MDQ2fQ.VG0d29lg8_w0jIcnFuNK6VBX2Ey-_wzFoF_o-IN8gxeVw2sTNoZasUKIa5SX-fNaWoQ8JHMV5IDyUPv03g5wmo6WEDipSQJCYSuFO_J4vRCIGud9Q5nHU9Wp4dyl_GIaweNshP6ZT9RnrcWd9aWsyYEmR2RD57Fv4GH54whX-Zgd7PkSbc5qb02BkHAr3EPJ2TfDK88KIFTz7iRCDdB6OHWePLsoNN9bHNXq3Cq8jf68bMPGea0ga_dm0eb6wv_KgPd4JGcs_AwoUZia286OihssdTDzz4HDpnIe3E9T-cKzdXxRYmQ85lXKt-MRKWDdsf2l5Ygw01kJ3nShnkcqiw" }];
+    /*[sessionConfiguration setHTTPAdditionalHeaders:@{ @"Authorization" : @"Bearer eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0Mjg0NDc2NDYsImF1ZCI6WyIzNjAxOTk4OS1iOTZkLTQzM2MtODdkNi1kYTUwZGYzNGY4ZDAiXSwiaXNzIjoiaHR0cHM6XC9cL29pZGMubWl0LmVkdVwvIiwianRpIjoiMjcyY2JiYjAtMmMwNC00ODc2LWEyMjItNDhhMWZjNjEzNzkyIiwiaWF0IjoxNDI4NDQ0MDQ2fQ.VG0d29lg8_w0jIcnFuNK6VBX2Ey-_wzFoF_o-IN8gxeVw2sTNoZasUKIa5SX-fNaWoQ8JHMV5IDyUPv03g5wmo6WEDipSQJCYSuFO_J4vRCIGud9Q5nHU9Wp4dyl_GIaweNshP6ZT9RnrcWd9aWsyYEmR2RD57Fv4GH54whX-Zgd7PkSbc5qb02BkHAr3EPJ2TfDK88KIFTz7iRCDdB6OHWePLsoNN9bHNXq3Cq8jf68bMPGea0ga_dm0eb6wv_KgPd4JGcs_AwoUZia286OihssdTDzz4HDpnIe3E9T-cKzdXxRYmQ85lXKt-MRKWDdsf2l5Ygw01kJ3nShnkcqiw" }];*/
+    
+    NSLog(@"%@", tokenDict);
+    NSString *accessToken = tokenDict[@"access_token"];
+    NSLog(@"%@",accessToken);
+    [sessionConfiguration setHTTPAdditionalHeaders:@{ @"Authorization" : [@"Bearer " stringByAppendingString: accessToken]}];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:Nil];
     [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"https://mit-oauth-flow.cloudhub.io/"];
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"https://mit-oauth-flow.cloudhub.io/classrooms"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        //NSLog(@"%@", dataTask);
+        NSLog(@"%@", dataTask);
         //Start JSON Parsing
         NSMutableDictionary *roomDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-        //NSLog(@"%@", roomDictionary);
+        NSLog(@"%@", roomDictionary);
         NSMutableArray *allRooms = [[NSMutableArray alloc] init];
         for (NSMutableDictionary *room in roomDictionary[@"data"]){
             RoomObject *currentRoom = [[RoomObject alloc] init];

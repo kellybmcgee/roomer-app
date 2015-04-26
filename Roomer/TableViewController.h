@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "AccessToken.h"
 
 @interface TableViewController : UITableViewController<CLLocationManagerDelegate, NSURLSessionDataDelegate>
 
@@ -19,6 +20,8 @@
 @property (nonatomic, strong) NSArray *distances;
 
 @property (strong, nonatomic) CLLocationManager *myLocMan;
+
+
 
 
 - (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential *))completionHandler;
