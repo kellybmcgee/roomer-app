@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h5Y-H2-fCC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h5Y-H2-fCC">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -172,20 +172,20 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qxo-3s-jZp" id="ydL-Eo-lNw">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Room Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kvl-0a-59y" customClass="CellBoundedLabels">
-                                            <rect key="frame" x="8" y="29" width="113" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Room Number                 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kvl-0a-59y" customClass="CellBoundedLabels">
+                                            <rect key="frame" x="8" y="32" width="215" height="23"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fym-zI-jG1" customClass="CellBoundedLabels">
-                                            <rect key="frame" x="161" y="29" width="67" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Distance    " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fym-zI-jG1" customClass="CellBoundedLabels">
+                                            <rect key="frame" x="263" y="31" width="67" height="23"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m7A-4e-Oc1">
-                                            <rect key="frame" x="255" y="15" width="45" height="45"/>
+                                            <rect key="frame" x="400" y="21" width="45" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="1e2-0e-kjl"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="4s0-N0-UNM"/>
@@ -226,10 +226,10 @@
                                     </subviews>
                                     <color key="tintColor" red="1" green="1" blue="0.98221235245743033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
+                                        <constraint firstItem="m7A-4e-Oc1" firstAttribute="leading" secondItem="Fym-zI-jG1" secondAttribute="trailing" constant="90" id="1fm-B8-ZC6"/>
                                         <constraint firstItem="m7A-4e-Oc1" firstAttribute="leading" secondItem="Fym-zI-jG1" secondAttribute="trailing" constant="15" id="3wM-ad-cnC"/>
                                         <constraint firstAttribute="centerY" secondItem="Kvl-0a-59y" secondAttribute="centerY" id="Cal-DT-5BH"/>
                                         <constraint firstItem="m7A-4e-Oc1" firstAttribute="leading" secondItem="Fym-zI-jG1" secondAttribute="trailing" constant="27" id="JHe-O5-vgC"/>
-                                        <constraint firstItem="m7A-4e-Oc1" firstAttribute="leading" secondItem="Fym-zI-jG1" secondAttribute="trailing" constant="27" id="K7I-GL-5I7"/>
                                         <constraint firstAttribute="centerY" secondItem="Kvl-0a-59y" secondAttribute="centerY" id="Pbf-aC-wQx"/>
                                         <constraint firstAttribute="centerY" secondItem="Fym-zI-jG1" secondAttribute="centerY" id="TS6-z3-hxo"/>
                                         <constraint firstAttribute="centerY" secondItem="m7A-4e-Oc1" secondAttribute="centerY" id="U3m-GX-1Fh"/>
@@ -238,10 +238,11 @@
                                         <constraint firstAttribute="centerX" secondItem="m7A-4e-Oc1" secondAttribute="centerX" constant="-248" id="ZOB-yX-jqT"/>
                                         <constraint firstAttribute="centerY" secondItem="m7A-4e-Oc1" secondAttribute="centerY" id="b9r-RP-maz"/>
                                         <constraint firstAttribute="centerY" secondItem="m7A-4e-Oc1" secondAttribute="centerY" id="cD2-rZ-9zV"/>
+                                        <constraint firstAttribute="centerX" secondItem="Fym-zI-jG1" secondAttribute="centerX" constant="3.5" id="dpT-pS-mbG"/>
                                         <constraint firstAttribute="centerY" secondItem="m7A-4e-Oc1" secondAttribute="centerY" id="jGf-qz-Wid"/>
                                         <constraint firstItem="m7A-4e-Oc1" firstAttribute="leading" secondItem="Fym-zI-jG1" secondAttribute="trailing" id="l5l-Wd-OFF"/>
-                                        <constraint firstItem="Fym-zI-jG1" firstAttribute="leading" secondItem="Kvl-0a-59y" secondAttribute="trailing" constant="40" id="lc0-uD-acy"/>
                                         <constraint firstAttribute="centerY" secondItem="Fym-zI-jG1" secondAttribute="centerY" id="n7l-VW-JKF"/>
+                                        <constraint firstAttribute="centerY" secondItem="Fym-zI-jG1" secondAttribute="centerY" constant="-3" id="t0O-j7-6Mb"/>
                                         <constraint firstAttribute="centerY" secondItem="m7A-4e-Oc1" secondAttribute="centerY" id="uL4-39-pKv"/>
                                         <constraint firstItem="Kvl-0a-59y" firstAttribute="leading" secondItem="ydL-Eo-lNw" secondAttribute="leadingMargin" id="yAv-ol-gCL"/>
                                     </constraints>
@@ -280,7 +281,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ElE-P0-mXq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1748" y="393"/>
+            <point key="canvasLocation" x="1748" y="389"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="kgO-yd-LJJ">

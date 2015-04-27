@@ -13,7 +13,6 @@
 - (void) roomFromDictionary:(NSDictionary *)roomDict
 {
     self.roomNumber = [roomDict objectForKey:@"room"];
-    
     if ([[roomDict objectForKey:@"features"] count] > 0){
         self.roomDescription = [[[roomDict objectForKey:@"features"] objectAtIndex:0] objectForKey:@"name"];
     }
@@ -64,11 +63,18 @@
             self.availabilityDuration = @"";
         }
     }
-    
-    NSString *latitude = ((NSString *)[roomDict objectForKey:@"latitude"]);
-    NSString *longitude = ((NSString *)[roomDict objectForKey:@"longitude"]);
+    NSString *latitude;
+    NSString *longitude;
+   
+    if([[roomDict objectForKey:@"room"]isEqualToString:@"35-308"]) {
+        latitude = @"42.361128";
+        longitude = @"-71.09192899999999";
+    }
+    else {
+        latitude = ((NSString *)[roomDict objectForKey:@"latitude"]);
+        longitude = ((NSString *)[roomDict objectForKey:@"longitude"]);
+    }
     self.location = [[CLLocation alloc] initWithLatitude:[latitude doubleValue] longitude:[longitude doubleValue]];
-    
     
 }
 

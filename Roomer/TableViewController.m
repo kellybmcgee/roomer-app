@@ -66,32 +66,33 @@ extern NSMutableDictionary *tokenDict;
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:Nil];
     [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"https://mit-oauth-flow.cloudhub.io/"];
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"https://mit-oauth-flow.cloudhub.io/classrooms"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSLog(@"%@", dataTask);
+        //NSLog(@"%@", dataTask);
         //Start JSON Parsing
         NSMutableDictionary *roomDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-        NSLog(@"%@", roomDictionary);
+        //NSLog(@"%@", roomDictionary);
         NSMutableArray *allRooms = [[NSMutableArray alloc] init];
         for (NSMutableDictionary *room in roomDictionary[@"data"]){
+            NSLog(@"%@", room);
             RoomObject *currentRoom = [[RoomObject alloc] init];
-            [currentRoom roomFromDictionary:room];
-            if([currentRoom.roomNumber isEqual:@"35-308"]) {
-                if([[room objectForKey:@"latitude" ] isEqual:@"<null>"] && [[room   objectForKey:@"longitude" ] isEqual:@"<null>"]) {
-                    continue;
-                }
+            if([[room objectForKey:@"room"]isEqualToString:@"35-310"]){
+                continue;
             }
+            if([[room objectForKey:@"room"] isEqualToString:@"13-1143"] || [[room objectForKey:@"room"] isEqualToString:@"13-4101"] || [[room objectForKey:@"room"] isEqualToString:@"13-5101"]){
+                continue;
+            }
+            [currentRoom roomFromDictionary:room];
             [allRooms addObject:currentRoom];
         }
+        
+        NSLog(@"userlocation: %@", userLocation);
         NSArray *sortedArray = [allRooms sortedArrayUsingComparator:^NSComparisonResult(RoomObject *r1, RoomObject *r2){
             
             NSNumber *r1Distance = [NSNumber numberWithDouble:[r1.location distanceFromLocation:userLocation]];
             NSNumber *r2Distance = [NSNumber numberWithDouble:[r2.location distanceFromLocation:userLocation]];
-            
             return [r1Distance compare:r2Distance];
             
         }];
-        /*NSString *latitude = @"42.3598";
-         NSString *longitude = @"-71.0921";
-         CLLocation *hardCodedLocation = [[CLLocation alloc] initWithLatitude:[latitude doubleValue] longitude:[longitude doubleValue]];*/
+
         
         
         NSMutableArray *roomNumbers = [[NSMutableArray alloc] init];
@@ -101,10 +102,10 @@ extern NSMutableDictionary *tokenDict;
         NSMutableArray *capacity = [[NSMutableArray alloc] init];
         NSMutableArray *distance = [[NSMutableArray alloc] init];
         NSMutableArray *imageArray = [[NSMutableArray alloc] init];
-        
         for (RoomObject *room in sortedArray)
         {
-            [roomNumbers addObject:[@"Room " stringByAppendingString:room.roomNumber]];
+            
+            [roomNumbers addObject: room.roomNumber];
             [descriptions addObject:room.roomDescription];
             [availabilities addObject:room.availability];
             [availabilityDurations addObject:room.availabilityDuration];
@@ -116,6 +117,8 @@ extern NSMutableDictionary *tokenDict;
             else {
                 [imageArray addObject: @"close2.png"];
             }
+            
+            
             NSNumber *metersDistance =[NSNumber numberWithDouble:[room.location distanceFromLocation:userLocation]];
             if([metersDistance compare:@(150)] > 0){
                 NSNumber *milesDistance = @([metersDistance floatValue]* 0.000621371);
@@ -134,7 +137,8 @@ extern NSMutableDictionary *tokenDict;
             }
         }
         
-        [roomNumbers addObject:@"Room 1-111"];
+        
+        /*[roomNumbers addObject:@"Room 1-111"];
         [descriptions addObject:@"Chalkboard"];
         [availabilities addObject:@"OPEN"];
         [availabilityDurations addObject: @"Until 9pm"];
@@ -154,24 +158,8 @@ extern NSMutableDictionary *tokenDict;
         [availabilityDurations addObject: @"Until 9pm"];
         [capacity addObject:@"Capacity: 20 people"];
         [distance addObject:@"200 Feet"];
-        [imageArray addObject:@"close2.png"];
-        /*NSLog(@"%@", userLocation);
-         NSNumber *metersDistance =[NSNumber numberWithDouble:[hardCodedLocation distanceFromLocation:userLocation]];
-         if([metersDistance compare:@(150)] > 0){
-         NSNumber *milesDistance = @([metersDistance floatValue]* 0.000621371);
-         NSString *distanceString = [milesDistance stringValue];
-         distanceString = [distanceString substringToIndex:(3)];
-         [distance addObject:[distanceString stringByAppendingString:@" mi"]];
-         }
-         else {
-         NSNumber *feetDistance = @([metersDistance floatValue]* 3.2808);
-         NSInteger *feetTruncated = [feetDistance integerValue];
-         int feetIntTruncated = (int) feetTruncated;
-         feetIntTruncated = (feetIntTruncated / 10) * 10;
-         feetDistance = [NSNumber numberWithInt:feetIntTruncated];
-         NSString *distanceString = [feetDistance stringValue];
-         [distance addObject:[distanceString stringByAppendingString:@" feet"]];
-         }*/
+        [imageArray addObject:@"close2.png"];*/
+        
         self.RoomNumber = roomNumbers;
         self.Description = descriptions;
         self.Availability = availabilities;
