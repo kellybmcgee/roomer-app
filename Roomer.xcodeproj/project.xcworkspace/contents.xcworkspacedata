@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:roomer-logo2.png">
+   </FileRef>
+   <FileRef
       location = "self:Roomer.xcodeproj">
    </FileRef>
 </Workspace>

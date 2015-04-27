@@ -16,7 +16,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor darkGrayColor];
+    pageControl.backgroundColor = [[UIColor alloc]initWithRed:(10.0f) green:(0.0f) blue:(0.0f) alpha:(0.005)];
     return YES;
 }
 - (NSDictionary *)parseQueryString:(NSString *)query {

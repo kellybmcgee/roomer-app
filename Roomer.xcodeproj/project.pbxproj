@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2324A341AED91BE00C04786 /* roomer.png in Resources */ = {isa = PBXBuildFile; fileRef = A2324A2E1AED91BE00C04786 /* roomer.png */; };
+		A2324A351AED91BE00C04786 /* Walkthrough2.png in Resources */ = {isa = PBXBuildFile; fileRef = A2324A2F1AED91BE00C04786 /* Walkthrough2.png */; };
+		A2324A361AED91BE00C04786 /* Walkthrough3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A2324A301AED91BE00C04786 /* Walkthrough3.jpg */; };
+		A2324A371AED91BE00C04786 /* Walkthrough1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A2324A311AED91BE00C04786 /* Walkthrough1.jpg */; };
+		A2324A381AED91BE00C04786 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = A2324A321AED91BE00C04786 /* pin.png */; };
+		A2324A391AED91BE00C04786 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = A2324A331AED91BE00C04786 /* list.png */; };
+		A2324A411AED93F800C04786 /* IntroController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2324A3E1AED93F800C04786 /* IntroController.m */; };
+		A2324A421AED93F800C04786 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2324A401AED93F800C04786 /* PageContentViewController.m */; };
+		A2324A461AEE036D00C04786 /* roomer-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A2324A451AEE036D00C04786 /* roomer-logo.png */; };
+		A2324A481AEE046300C04786 /* roomer-logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = A2324A471AEE046300C04786 /* roomer-logo2.png */; };
 		F34E16411ACF6F530002DFC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16401ACF6F530002DFC3 /* main.m */; };
 		F34E16441ACF6F530002DFC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16431ACF6F530002DFC3 /* AppDelegate.m */; };
 		F34E16471ACF6F530002DFC3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16461ACF6F530002DFC3 /* ViewController.m */; };
@@ -25,7 +35,6 @@
 		F3D8D6A21AED8CEF005F6913 /* AccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D8D6A11AED8CEF005F6913 /* AccessToken.m */; };
 		F3D8D6A51AED8D98005F6913 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D8D6A41AED8D98005F6913 /* LoginViewController.m */; };
 		F3D8D6A81AED8DAE005F6913 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D8D6A71AED8DAE005F6913 /* NavigationController.m */; };
-		F3D8D6AC1AED8DD1005F6913 /* roomer-logo-1.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D8D6AB1AED8DD1005F6913 /* roomer-logo-1.png */; };
 		F3D8D6AE1AED8DEC005F6913 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3D8D6AD1AED8DEC005F6913 /* Info.plist */; };
 		F3D8D6B11AED8E8B005F6913 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D8D6B01AED8E8B005F6913 /* DetailViewController.m */; };
 /* End PBXBuildFile section */
@@ -41,6 +50,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A2324A2E1AED91BE00C04786 /* roomer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = roomer.png; path = ../roomer.png; sourceTree = "<group>"; };
+		A2324A2F1AED91BE00C04786 /* Walkthrough2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Walkthrough2.png; path = ../Walkthrough2.png; sourceTree = "<group>"; };
+		A2324A301AED91BE00C04786 /* Walkthrough3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Walkthrough3.jpg; path = ../Walkthrough3.jpg; sourceTree = "<group>"; };
+		A2324A311AED91BE00C04786 /* Walkthrough1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Walkthrough1.jpg; path = ../Walkthrough1.jpg; sourceTree = "<group>"; };
+		A2324A321AED91BE00C04786 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin.png; path = ../pin.png; sourceTree = "<group>"; };
+		A2324A331AED91BE00C04786 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list.png; path = ../list.png; sourceTree = "<group>"; };
+		A2324A3D1AED93F800C04786 /* IntroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntroController.h; path = ../IntroController.h; sourceTree = "<group>"; };
+		A2324A3E1AED93F800C04786 /* IntroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IntroController.m; path = ../IntroController.m; sourceTree = "<group>"; };
+		A2324A3F1AED93F800C04786 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageContentViewController.h; path = ../PageContentViewController.h; sourceTree = "<group>"; };
+		A2324A401AED93F800C04786 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageContentViewController.m; path = ../PageContentViewController.m; sourceTree = "<group>"; };
+		A2324A451AEE036D00C04786 /* roomer-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "roomer-logo.png"; sourceTree = "<group>"; };
+		A2324A471AEE046300C04786 /* roomer-logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "roomer-logo2.png"; sourceTree = "<group>"; };
 		F34E163B1ACF6F530002DFC3 /* Roomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34E16401ACF6F530002DFC3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F34E16421ACF6F530002DFC3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -73,7 +94,6 @@
 		F3D8D6A71AED8DAE005F6913 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 		F3D8D6A91AED8DBA005F6913 /* Comfortaa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Regular.ttf"; sourceTree = "<group>"; };
 		F3D8D6AA1AED8DBA005F6913 /* Comfortaa-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Light.ttf"; sourceTree = "<group>"; };
-		F3D8D6AB1AED8DD1005F6913 /* roomer-logo-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "roomer-logo-1.png"; sourceTree = "<group>"; };
 		F3D8D6AD1AED8DEC005F6913 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3D8D6AF1AED8E8B005F6913 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		F3D8D6B01AED8E8B005F6913 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
@@ -128,6 +148,10 @@
 			children = (
 				F34E16421ACF6F530002DFC3 /* AppDelegate.h */,
 				F34E16431ACF6F530002DFC3 /* AppDelegate.m */,
+				A2324A3D1AED93F800C04786 /* IntroController.h */,
+				A2324A3E1AED93F800C04786 /* IntroController.m */,
+				A2324A3F1AED93F800C04786 /* PageContentViewController.h */,
+				A2324A401AED93F800C04786 /* PageContentViewController.m */,
 				F3D8D6A01AED8CEF005F6913 /* AccessToken.h */,
 				F3D8D6A11AED8CEF005F6913 /* AccessToken.m */,
 				F34E16451ACF6F530002DFC3 /* ViewController.h */,
@@ -139,9 +163,6 @@
 				F3D8D6A71AED8DAE005F6913 /* NavigationController.m */,
 				F3D8D6A91AED8DBA005F6913 /* Comfortaa-Regular.ttf */,
 				F3D8D6AA1AED8DBA005F6913 /* Comfortaa-Light.ttf */,
-				F34E164B1ACF6F530002DFC3 /* Images.xcassets */,
-				F34E164D1ACF6F530002DFC3 /* LaunchScreen.xib */,
-				F34E163E1ACF6F530002DFC3 /* Supporting Files */,
 				F34E16641ACF70F40002DFC3 /* TableViewController.h */,
 				F34E16651ACF70F40002DFC3 /* TableViewController.m */,
 				F3CEE8501AD230D6008DC474 /* RoomObject.h */,
@@ -152,6 +173,16 @@
 				F34E166B1ACF8CD30002DFC3 /* CellBoundedLabels.m */,
 				F3D8D6AF1AED8E8B005F6913 /* DetailViewController.h */,
 				F3D8D6B01AED8E8B005F6913 /* DetailViewController.m */,
+				F34E164B1ACF6F530002DFC3 /* Images.xcassets */,
+				F34E164D1ACF6F530002DFC3 /* LaunchScreen.xib */,
+				F34E163E1ACF6F530002DFC3 /* Supporting Files */,
+				A2324A2E1AED91BE00C04786 /* roomer.png */,
+				A2324A2F1AED91BE00C04786 /* Walkthrough2.png */,
+				A2324A301AED91BE00C04786 /* Walkthrough3.jpg */,
+				A2324A311AED91BE00C04786 /* Walkthrough1.jpg */,
+				A2324A321AED91BE00C04786 /* pin.png */,
+				A2324A331AED91BE00C04786 /* list.png */,
+				A2324A451AEE036D00C04786 /* roomer-logo.png */,
 			);
 			path = Roomer;
 			sourceTree = "<group>";
@@ -159,7 +190,7 @@
 		F34E163E1ACF6F530002DFC3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F3D8D6AB1AED8DD1005F6913 /* roomer-logo-1.png */,
+				A2324A471AEE046300C04786 /* roomer-logo2.png */,
 				F3D8D6AD1AED8DEC005F6913 /* Info.plist */,
 				F34E16401ACF6F530002DFC3 /* main.m */,
 			);
@@ -270,10 +301,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				F34E164A1ACF6F530002DFC3 /* Main.storyboard in Resources */,
+				A2324A351AED91BE00C04786 /* Walkthrough2.png in Resources */,
+				A2324A481AEE046300C04786 /* roomer-logo2.png in Resources */,
+				A2324A361AED91BE00C04786 /* Walkthrough3.jpg in Resources */,
+				A2324A381AED91BE00C04786 /* pin.png in Resources */,
+				A2324A341AED91BE00C04786 /* roomer.png in Resources */,
 				F34E164F1ACF6F530002DFC3 /* LaunchScreen.xib in Resources */,
 				F34E164C1ACF6F530002DFC3 /* Images.xcassets in Resources */,
 				F3D8D6AE1AED8DEC005F6913 /* Info.plist in Resources */,
-				F3D8D6AC1AED8DD1005F6913 /* roomer-logo-1.png in Resources */,
+				A2324A461AEE036D00C04786 /* roomer-logo.png in Resources */,
+				A2324A391AED91BE00C04786 /* list.png in Resources */,
+				A2324A371AED91BE00C04786 /* Walkthrough1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2324A411AED93F800C04786 /* IntroController.m in Sources */,
 				F34E16471ACF6F530002DFC3 /* ViewController.m in Sources */,
 				F34E16441ACF6F530002DFC3 /* AppDelegate.m in Sources */,
 				F34E16411ACF6F530002DFC3 /* main.m in Sources */,
@@ -298,6 +337,7 @@
 				F34E16691ACF73D20002DFC3 /* TableViewCell.m in Sources */,
 				F3D8D6A51AED8D98005F6913 /* LoginViewController.m in Sources */,
 				F34E166C1ACF8CD30002DFC3 /* CellBoundedLabels.m in Sources */,
+				A2324A421AED93F800C04786 /* PageContentViewController.m in Sources */,
 				F3D8D6B11AED8E8B005F6913 /* DetailViewController.m in Sources */,
 				F3D8D6A81AED8DAE005F6913 /* NavigationController.m in Sources */,
 				F3CEE8521AD230D6008DC474 /* RoomObject.m in Sources */,
