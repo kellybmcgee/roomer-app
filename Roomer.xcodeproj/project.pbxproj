@@ -17,6 +17,8 @@
 		A2324A421AED93F800C04786 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2324A401AED93F800C04786 /* PageContentViewController.m */; };
 		A2324A461AEE036D00C04786 /* roomer-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A2324A451AEE036D00C04786 /* roomer-logo.png */; };
 		A2324A481AEE046300C04786 /* roomer-logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = A2324A471AEE046300C04786 /* roomer-logo2.png */; };
+		A2324A4B1AEE0DF800C04786 /* closed.png in Resources */ = {isa = PBXBuildFile; fileRef = A2324A491AEE0DF800C04786 /* closed.png */; };
+		A2324A4C1AEE0DF800C04786 /* open.png in Resources */ = {isa = PBXBuildFile; fileRef = A2324A4A1AEE0DF800C04786 /* open.png */; };
 		F34E16411ACF6F530002DFC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16401ACF6F530002DFC3 /* main.m */; };
 		F34E16441ACF6F530002DFC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16431ACF6F530002DFC3 /* AppDelegate.m */; };
 		F34E16471ACF6F530002DFC3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34E16461ACF6F530002DFC3 /* ViewController.m */; };
@@ -64,6 +66,8 @@
 		A2324A401AED93F800C04786 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageContentViewController.m; path = ../PageContentViewController.m; sourceTree = "<group>"; };
 		A2324A451AEE036D00C04786 /* roomer-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "roomer-logo.png"; sourceTree = "<group>"; };
 		A2324A471AEE046300C04786 /* roomer-logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "roomer-logo2.png"; sourceTree = "<group>"; };
+		A2324A491AEE0DF800C04786 /* closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = closed.png; path = ../closed.png; sourceTree = "<group>"; };
+		A2324A4A1AEE0DF800C04786 /* open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = open.png; path = ../open.png; sourceTree = "<group>"; };
 		F34E163B1ACF6F530002DFC3 /* Roomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34E16401ACF6F530002DFC3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F34E16421ACF6F530002DFC3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 				F34E164D1ACF6F530002DFC3 /* LaunchScreen.xib */,
 				F34E163E1ACF6F530002DFC3 /* Supporting Files */,
 				A2324A2E1AED91BE00C04786 /* roomer.png */,
+				A2324A491AEE0DF800C04786 /* closed.png */,
+				A2324A4A1AEE0DF800C04786 /* open.png */,
 				A2324A2F1AED91BE00C04786 /* Walkthrough2.png */,
 				A2324A301AED91BE00C04786 /* Walkthrough3.jpg */,
 				A2324A311AED91BE00C04786 /* Walkthrough1.jpg */,
@@ -312,10 +318,14 @@
 				A2324A341AED91BE00C04786 /* roomer.png in Resources */,
 				F34E164F1ACF6F530002DFC3 /* LaunchScreen.xib in Resources */,
 				F34E164C1ACF6F530002DFC3 /* Images.xcassets in Resources */,
+				A2324A4B1AEE0DF800C04786 /* closed.png in Resources */,
 				F3D8D6AE1AED8DEC005F6913 /* Info.plist in Resources */,
 				A2324A461AEE036D00C04786 /* roomer-logo.png in Resources */,
 				A2324A391AED91BE00C04786 /* list.png in Resources */,
 				A2324A371AED91BE00C04786 /* Walkthrough1.jpg in Resources */,
+				A2324A4C1AEE0DF800C04786 /* open.png in Resources */,
+				F3D8D6B41AED9227005F6913 /* closed.png in Resources */,
+				F3D8D6B51AED9227005F6913 /* open.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
