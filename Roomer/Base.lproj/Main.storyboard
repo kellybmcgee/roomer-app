@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h5Y-H2-fCC">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="Comfortaa-Light.ttf">
-            <string>Comfortaa-Light</string>
-            <string>Comfortaa-Light</string>
-        </mutableArray>
-        <mutableArray key="Comfortaa-Regular.ttf">
-            <string>Comfortaa-Regular</string>
-            <string>Comfortaa-Regular</string>
-            <string>Comfortaa-Regular</string>
-            <string>Comfortaa-Regular</string>
-        </mutableArray>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -320,22 +308,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1E5-jU-WXf">
-                                <rect key="frame" x="277" y="285" width="38" height="30"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="LoginButton:" destination="iYb-p0-s4u" eventType="touchUpInside" id="EqE-Ym-h8a"/>
-                                    <segue destination="zkz-3l-8qR" kind="presentation" id="ODd-rF-pOe"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Login With Your MIT Kerberos Account" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a5O-fF-hbM">
                                 <rect key="frame" x="164" y="221" width="272" height="30"/>
                                 <constraints>
@@ -353,12 +325,57 @@
                                     <constraint firstAttribute="height" constant="166" id="es0-Ww-pQO"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1E5-jU-WXf">
+                                <rect key="frame" x="165" y="285" width="270" height="30"/>
+                                <color key="backgroundColor" cyan="0.049184253340000005" magenta="0.80326610493684247" yellow="0.89254269783157891" black="0.071641087529999994" alpha="0.70000000000000007" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5ar-k3-ZSP"/>
+                                    <constraint firstAttribute="width" constant="270" id="GoP-hL-IYq"/>
+                                    <constraint firstAttribute="height" constant="30" id="Siy-7A-r74"/>
+                                    <constraint firstAttribute="width" constant="270" id="Tj9-jk-GtO"/>
+                                </constraints>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Siy-7A-r74"/>
+                                        <exclude reference="Tj9-jk-GtO"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="LoginButton:" destination="iYb-p0-s4u" eventType="touchUpInside" id="EqE-Ym-h8a"/>
+                                    <segue destination="zkz-3l-8qR" kind="presentation" id="ODd-rF-pOe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="1E5-jU-WXf" secondAttribute="centerY" id="BaE-ra-7tg"/>
+                            <constraint firstAttribute="centerY" secondItem="a5O-fF-hbM" secondAttribute="centerY" constant="64" id="axY-3j-dn7"/>
+                            <constraint firstAttribute="centerX" secondItem="a5O-fF-hbM" secondAttribute="centerX" id="dzE-MV-OKA"/>
                             <constraint firstAttribute="centerX" secondItem="1E5-jU-WXf" secondAttribute="centerX" constant="4" id="m76-71-W7q"/>
+                            <constraint firstAttribute="centerY" secondItem="1E5-jU-WXf" secondAttribute="centerY" id="nld-m1-rK4"/>
+                            <constraint firstAttribute="centerY" secondItem="zJK-jI-xRe" secondAttribute="centerY" constant="126" id="ouv-rW-C6z"/>
                             <constraint firstAttribute="centerY" secondItem="1E5-jU-WXf" secondAttribute="centerY" id="p4O-Ly-BaJ"/>
+                            <constraint firstAttribute="centerX" secondItem="1E5-jU-WXf" secondAttribute="centerX" id="tsg-kK-oXJ"/>
+                            <constraint firstAttribute="centerX" secondItem="zJK-jI-xRe" secondAttribute="centerX" id="w9y-br-HA3"/>
+                            <constraint firstAttribute="centerX" secondItem="1E5-jU-WXf" secondAttribute="centerX" id="yMI-u6-bYK"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BaE-ra-7tg"/>
+                                <exclude reference="m76-71-W7q"/>
+                                <exclude reference="p4O-Ly-BaJ"/>
+                                <exclude reference="yMI-u6-bYK"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P00-sS-8FX" userLabel="First Responder" sceneMemberID="firstResponder"/>
