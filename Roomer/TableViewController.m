@@ -100,6 +100,7 @@ extern NSMutableDictionary *tokenDict;
         NSMutableArray *availabilityDurations = [[NSMutableArray alloc] init];
         NSMutableArray *capacity = [[NSMutableArray alloc] init];
         NSMutableArray *distance = [[NSMutableArray alloc] init];
+        NSMutableArray *imageArray = [[NSMutableArray alloc] init];
         
         for (RoomObject *room in sortedArray)
         {
@@ -108,6 +109,13 @@ extern NSMutableDictionary *tokenDict;
             [availabilities addObject:room.availability];
             [availabilityDurations addObject:room.availabilityDuration];
             [capacity addObject:room.capacity];
+            if ([room.availability isEqualToString:@"OPEN"])
+            {
+                 [imageArray addObject: @"open.png"];
+            }
+            else {
+                [imageArray addObject: @"closed.png"];
+            }
             NSNumber *metersDistance =[NSNumber numberWithDouble:[room.location distanceFromLocation:userLocation]];
             if([metersDistance compare:@(150)] > 0){
                 NSNumber *milesDistance = @([metersDistance floatValue]* 0.000621371);
@@ -132,6 +140,21 @@ extern NSMutableDictionary *tokenDict;
         [availabilityDurations addObject: @"Until 9pm"];
         [capacity addObject:@"Capacity: 20 people"];
         [distance addObject:@"200 Feet"];
+        [imageArray addObject:@"open.png"];
+        [roomNumbers addObject:@"Room 2-222"];
+        [descriptions addObject:@"Chalkboard"];
+        [availabilities addObject:@"OPEN"];
+        [availabilityDurations addObject: @"Until 9pm"];
+        [capacity addObject:@"Capacity: 20 people"];
+        [distance addObject:@"200 Feet"];
+        [imageArray addObject:@"open.png"];
+        [roomNumbers addObject:@"Room 3-333"];
+        [descriptions addObject:@"Chalkboard"];
+        [availabilities addObject:@"CLOSED"];
+        [availabilityDurations addObject: @"Until 9pm"];
+        [capacity addObject:@"Capacity: 20 people"];
+        [distance addObject:@"200 Feet"];
+        [imageArray addObject:@"closed.png"];
         /*NSLog(@"%@", userLocation);
          NSNumber *metersDistance =[NSNumber numberWithDouble:[hardCodedLocation distanceFromLocation:userLocation]];
          if([metersDistance compare:@(150)] > 0){
@@ -155,7 +178,7 @@ extern NSMutableDictionary *tokenDict;
         self.LengthOfAvailable = availabilityDurations;
         self.capacities = capacity;
         self.distances = distance;
-        
+        self.images = imageArray;
         // 6
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -223,7 +246,7 @@ extern NSMutableDictionary *tokenDict;
     cell.LengthOfAvailableLabel.text = _LengthOfAvailable[row];
     cell.CapacityLabel.text = _capacities[row];
     cell.DistanceLabel.text = _distances[row];
-    
+    cell.image.image = [UIImage imageNamed:_images[row]];
     return cell;
 }
 

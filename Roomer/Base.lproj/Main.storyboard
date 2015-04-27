@@ -184,89 +184,40 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qxo-3s-jZp" id="ydL-Eo-lNw">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qza-eO-zTF" customClass="CellBoundedLabels">
-                                            <rect key="frame" x="537" y="11" width="55" height="23"/>
-                                            <color key="backgroundColor" red="0.36078431372549019" green="0.70980392156862748" blue="0.27843137254901962" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3M-c4-ME8" customClass="CellBoundedLabels">
-                                            <rect key="frame" x="8" y="50" width="513" height="33"/>
-                                            <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="12"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3CT-2f-OCd" customClass="CellBoundedLabels">
-                                            <rect key="frame" x="8" y="5" width="82" height="29"/>
-                                            <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="22"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Room Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kvl-0a-59y" customClass="CellBoundedLabels">
+                                            <rect key="frame" x="8" y="29" width="113" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzn-rb-Nrc" customClass="CellBoundedLabels">
-                                            <rect key="frame" x="508" y="50" width="84" height="21"/>
-                                            <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="12"/>
-                                            <color key="textColor" white="0.5" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fym-zI-jG1" customClass="CellBoundedLabels">
+                                            <rect key="frame" x="161" y="29" width="67" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4D-VE-l5j">
-                                            <rect key="frame" x="258" y="44" width="85" height="21"/>
-                                            <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMU-Kg-WVo" customClass="CellBoundedLabels">
-                                            <rect key="frame" x="8" y="32" width="513" height="33"/>
-                                            <color key="tintColor" red="0.99913962802501644" green="0.98199160845393163" blue="0.93054754974067722" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="12"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m7A-4e-Oc1">
+                                            <rect key="frame" x="236" y="3" width="85" height="76"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="85" id="EX9-Cz-pSz"/>
+                                                <constraint firstAttribute="height" constant="76" id="pzc-D4-efR"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
-                                    <color key="tintColor" red="0.98039215686274506" green="0.96078431372549022" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="tintColor" red="0.91764705882352937" green="0.95686274509803926" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstItem="r3M-c4-ME8" firstAttribute="top" secondItem="3CT-2f-OCd" secondAttribute="bottom" constant="13" id="4md-DJ-z7f"/>
-                                        <constraint firstItem="r3M-c4-ME8" firstAttribute="leading" secondItem="ydL-Eo-lNw" secondAttribute="leadingMargin" id="9qI-nt-IZa"/>
-                                        <constraint firstItem="a4D-VE-l5j" firstAttribute="top" secondItem="ydL-Eo-lNw" secondAttribute="topMargin" constant="38" id="Kcy-iv-QdK"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="r3M-c4-ME8" secondAttribute="trailing" constant="71" id="M5D-Cs-CUb"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="a4D-VE-l5j" secondAttribute="bottom" constant="4" id="Mgr-1T-WHY"/>
-                                        <constraint firstItem="r3M-c4-ME8" firstAttribute="leading" secondItem="ydL-Eo-lNw" secondAttribute="leadingMargin" id="NHh-T9-m7l"/>
-                                        <constraint firstAttribute="centerY" secondItem="Qza-eO-zTF" secondAttribute="centerY" constant="17.5" id="Ued-i2-uZe"/>
-                                        <constraint firstAttribute="centerY" secondItem="NMU-Kg-WVo" secondAttribute="centerY" constant="-7.5" id="WaN-as-399"/>
-                                        <constraint firstAttribute="centerY" secondItem="3CT-2f-OCd" secondAttribute="centerY" constant="17.5" id="XQ2-uW-h0I"/>
-                                        <constraint firstItem="3CT-2f-OCd" firstAttribute="leading" secondItem="ydL-Eo-lNw" secondAttribute="leadingMargin" id="Yym-x6-cEF"/>
-                                        <constraint firstItem="Uzn-rb-Nrc" firstAttribute="trailing" secondItem="ydL-Eo-lNw" secondAttribute="trailingMargin" id="ePu-cf-RXc"/>
-                                        <constraint firstAttribute="centerY" secondItem="3CT-2f-OCd" secondAttribute="centerY" constant="20.25" id="iJQ-Kc-1V0"/>
-                                        <constraint firstItem="NMU-Kg-WVo" firstAttribute="leading" secondItem="ydL-Eo-lNw" secondAttribute="leadingMargin" id="kg0-hZ-p5e"/>
-                                        <constraint firstItem="Qza-eO-zTF" firstAttribute="trailing" secondItem="ydL-Eo-lNw" secondAttribute="trailingMargin" id="lA7-8t-1P9"/>
-                                        <constraint firstAttribute="centerY" secondItem="r3M-c4-ME8" secondAttribute="centerY" constant="-26.5" id="oSZ-Ac-D0f"/>
-                                        <constraint firstAttribute="centerY" secondItem="Uzn-rb-Nrc" secondAttribute="centerY" constant="-20.5" id="ozl-SG-kvn"/>
-                                        <constraint firstAttribute="centerX" secondItem="a4D-VE-l5j" secondAttribute="centerX" id="rBi-Qd-8yd"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="r3M-c4-ME8" secondAttribute="bottom" constant="-11" id="www-uk-nI4"/>
+                                        <constraint firstItem="m7A-4e-Oc1" firstAttribute="leading" secondItem="Fym-zI-jG1" secondAttribute="trailing" constant="15" id="3wM-ad-cnC"/>
+                                        <constraint firstAttribute="centerY" secondItem="Kvl-0a-59y" secondAttribute="centerY" id="Cal-DT-5BH"/>
+                                        <constraint firstAttribute="centerY" secondItem="m7A-4e-Oc1" secondAttribute="centerY" id="U3m-GX-1Fh"/>
+                                        <constraint firstItem="Fym-zI-jG1" firstAttribute="leading" secondItem="Kvl-0a-59y" secondAttribute="trailing" constant="40" id="lc0-uD-acy"/>
+                                        <constraint firstAttribute="centerY" secondItem="Fym-zI-jG1" secondAttribute="centerY" id="n7l-VW-JKF"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="XQ2-uW-h0I"/>
-                                            <exclude reference="4md-DJ-z7f"/>
-                                            <exclude reference="9qI-nt-IZa"/>
-                                            <exclude reference="M5D-Cs-CUb"/>
-                                            <exclude reference="www-uk-nI4"/>
-                                        </mask>
-                                    </variation>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.9882352941176471" green="0.97254901960784312" blue="0.94788441692466452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.98191434468524252" green="0.97647058823529409" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <outlet property="AvailabilityLabel" destination="Qza-eO-zTF" id="JH2-kn-M9P"/>
-                                    <outlet property="CapacityLabel" destination="r3M-c4-ME8" id="Gnj-O7-JH6"/>
-                                    <outlet property="DescriptionLabel" destination="NMU-Kg-WVo" id="8bQ-t2-9ZT"/>
-                                    <outlet property="DistanceLabel" destination="a4D-VE-l5j" id="Ao0-PY-Ej8"/>
-                                    <outlet property="LengthOfAvailableLabel" destination="Uzn-rb-Nrc" id="Ay7-fc-fza"/>
-                                    <outlet property="RoomNumberLabel" destination="3CT-2f-OCd" id="AGf-5B-Olb"/>
+                                    <outlet property="DistanceLabel" destination="Fym-zI-jG1" id="GaQ-J2-vi4"/>
+                                    <outlet property="RoomNumberLabel" destination="Kvl-0a-59y" id="s2U-yz-G72"/>
+                                    <outlet property="image" destination="m7A-4e-Oc1" id="xjr-0k-h5X"/>
                                     <segue destination="Xp0-92-lPA" kind="show" identifier="ShowDetails" id="hgZ-3h-qfx"/>
                                 </connections>
                             </tableViewCell>
@@ -279,7 +230,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ElE-P0-mXq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1748" y="408"/>
+            <point key="canvasLocation" x="1748" y="393"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="kgO-yd-LJJ">
@@ -432,6 +383,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="zMz-CT-E9Y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.98191434470000005" green="0.97647058819999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

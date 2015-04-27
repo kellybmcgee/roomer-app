@@ -37,6 +37,8 @@
 		F3D8D6A81AED8DAE005F6913 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D8D6A71AED8DAE005F6913 /* NavigationController.m */; };
 		F3D8D6AE1AED8DEC005F6913 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3D8D6AD1AED8DEC005F6913 /* Info.plist */; };
 		F3D8D6B11AED8E8B005F6913 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D8D6B01AED8E8B005F6913 /* DetailViewController.m */; };
+		F3D8D6B41AED9227005F6913 /* closed.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D8D6B21AED9227005F6913 /* closed.png */; };
+		F3D8D6B51AED9227005F6913 /* open.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D8D6B31AED9227005F6913 /* open.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,8 @@
 		F3D8D6AD1AED8DEC005F6913 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3D8D6AF1AED8E8B005F6913 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		F3D8D6B01AED8E8B005F6913 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		F3D8D6B21AED9227005F6913 /* closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closed.png; sourceTree = "<group>"; };
+		F3D8D6B31AED9227005F6913 /* open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = open.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
