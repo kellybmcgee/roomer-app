@@ -111,10 +111,10 @@ extern NSMutableDictionary *tokenDict;
             [capacity addObject:room.capacity];
             if ([room.availability isEqualToString:@"OPEN"])
             {
-                 [imageArray addObject: @"open.png"];
+                 [imageArray addObject: @"free3.png"];
             }
             else {
-                [imageArray addObject: @"closed.png"];
+                [imageArray addObject: @"close2.png"];
             }
             NSNumber *metersDistance =[NSNumber numberWithDouble:[room.location distanceFromLocation:userLocation]];
             if([metersDistance compare:@(150)] > 0){
@@ -140,21 +140,21 @@ extern NSMutableDictionary *tokenDict;
         [availabilityDurations addObject: @"Until 9pm"];
         [capacity addObject:@"Capacity: 20 people"];
         [distance addObject:@"200 Feet"];
-        [imageArray addObject:@"open.png"];
+        [imageArray addObject:@"free3.png"];
         [roomNumbers addObject:@"Room 2-222"];
         [descriptions addObject:@"Chalkboard"];
         [availabilities addObject:@"OPEN"];
         [availabilityDurations addObject: @"Until 9pm"];
         [capacity addObject:@"Capacity: 20 people"];
         [distance addObject:@"200 Feet"];
-        [imageArray addObject:@"open.png"];
+        [imageArray addObject:@"free3.png"];
         [roomNumbers addObject:@"Room 3-333"];
         [descriptions addObject:@"Chalkboard"];
         [availabilities addObject:@"CLOSED"];
         [availabilityDurations addObject: @"Until 9pm"];
         [capacity addObject:@"Capacity: 20 people"];
         [distance addObject:@"200 Feet"];
-        [imageArray addObject:@"closed.png"];
+        [imageArray addObject:@"close2.png"];
         /*NSLog(@"%@", userLocation);
          NSNumber *metersDistance =[NSNumber numberWithDouble:[hardCodedLocation distanceFromLocation:userLocation]];
          if([metersDistance compare:@(150)] > 0){
