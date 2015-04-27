@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSArray *LengthOfAvailable;
 @property (nonatomic, strong) NSArray *capacities;
 @property (nonatomic, strong) NSArray *distances;
+@property (nonatomic, strong) NSArray *images;
 
 @property (strong, nonatomic) CLLocationManager *myLocMan;
 

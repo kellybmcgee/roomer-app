@@ -16,5 +16,6 @@
 @property(strong, nonatomic) IBOutlet UILabel *LengthOfAvailableLabel;
 @property(strong, nonatomic) IBOutlet UILabel *CapacityLabel;
 @property(strong, nonatomic) IBOutlet UILabel *DistanceLabel;
+@property(strong, nonatomic) IBOutlet UIImageView *image;
 
 @end

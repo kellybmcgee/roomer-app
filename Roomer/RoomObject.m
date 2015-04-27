@@ -29,7 +29,7 @@
     {
         if(availabilityStatus[@"available"]) {
             //[roomStatus addObject: @"OPEN"];
-            self.availability = @"Open";
+            self.availability = @"OPEN";
             NSString *endDateAndTime = availabilityStatus[@"end"];
             NSCharacterSet *doNotWantT = [NSCharacterSet characterSetWithCharactersInString:@"T"];
             NSString *noT = [[endDateAndTime componentsSeparatedByCharactersInSet: doNotWantT] componentsJoinedByString: @" "];
