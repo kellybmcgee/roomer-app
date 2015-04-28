@@ -20,7 +20,7 @@
         self.roomDescription = @"";
     }
     NSString *capacity = [NSString stringWithFormat:@"%@",[roomDict objectForKey:@"capacity"]];
-    NSString *fullCapacity = [capacity stringByAppendingString:@" capacity"];
+    NSString *fullCapacity = [capacity stringByAppendingString:@" people"];
     self.capacity = fullCapacity;
     
     NSArray *availabilities = roomDict[@"availabilities"];
@@ -48,11 +48,11 @@
             }
             NSString *amPm;
             if(number <12){
-                amPm = @" am";
+                amPm = @" AM";
             }
             else {
                 number = number - 12;
-                amPm = @" pm";
+                amPm = @" PM";
             }
             hours = [NSString stringWithFormat:@"%d",number];
             NSString *finalTime = [[[[@"Until " stringByAppendingString:hours] stringByAppendingString:@":"] stringByAppendingString:minutes] stringByAppendingString:amPm];

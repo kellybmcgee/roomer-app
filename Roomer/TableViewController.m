@@ -77,9 +77,6 @@ extern NSMutableDictionary *tokenDict;
             if([[room objectForKey:@"room"]isEqualToString:@"35-310"]){
                 continue;
             }
-            if([[room objectForKey:@"room"] isEqualToString:@"13-1143"] || [[room objectForKey:@"room"] isEqualToString:@"13-4101"] || [[room objectForKey:@"room"] isEqualToString:@"13-5101"]){
-                continue;
-            }
             [currentRoom roomFromDictionary:room];
             [allRooms addObject:currentRoom];
         }
@@ -138,21 +135,21 @@ extern NSMutableDictionary *tokenDict;
         }
         
         
-        /*[roomNumbers addObject:@"Room 1-111"];
+        /*[roomNumbers addObject:@"1-111"];
         [descriptions addObject:@"Chalkboard"];
         [availabilities addObject:@"OPEN"];
         [availabilityDurations addObject: @"Until 9pm"];
         [capacity addObject:@"Capacity: 20 people"];
         [distance addObject:@"200 Feet"];
         [imageArray addObject:@"free3.png"];
-        [roomNumbers addObject:@"Room 2-222"];
+        [roomNumbers addObject:@"2-222"];
         [descriptions addObject:@"Chalkboard"];
         [availabilities addObject:@"OPEN"];
         [availabilityDurations addObject: @"Until 9pm"];
         [capacity addObject:@"Capacity: 20 people"];
         [distance addObject:@"200 Feet"];
         [imageArray addObject:@"free3.png"];
-        [roomNumbers addObject:@"Room 3-333"];
+        [roomNumbers addObject:@"3-333"];
         [descriptions addObject:@"Chalkboard"];
         [availabilities addObject:@"CLOSED"];
         [availabilityDurations addObject: @"Until 9pm"];

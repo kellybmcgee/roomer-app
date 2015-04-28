@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -20,6 +21,18 @@
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor darkGrayColor];
     pageControl.backgroundColor = [[UIColor alloc]initWithRed:(10.0f) green:(0.0f) blue:(0.0f) alpha:(0.005)];
+    [Parse setApplicationId:@"Rd3XtHnP60rHXe9D9saIL3fPK7vZ9iTskpeAIBiK"
+                  clientKey:@"2TAzmZMaOHkJClvrBpZ6QMeOQgZLtiSAGdHrCqyk"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    NSDictionary *dimensions = @{
+                                 // What type of news is this?
+                                 @"category": @"politics",
+                                 // Is it a weekday or the weekend?
+                                 @"dayType": @"weekday",
+                                 };
+    // Send the dimensions to Parse along with the 'read' event
+    
+    [PFAnalytics trackEvent:@"read" dimensions:dimensions];
     return YES;
 }
 - (NSDictionary *)parseQueryString:(NSString *)query {
